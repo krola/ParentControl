@@ -1,0 +1,32 @@
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\ParentControl.Infrastructure.dll.config
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\ParentControl.Infrastructure.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\ParentControl.Infrastructure.pdb
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\Castle.Core.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\Castle.Windsor.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\Newtonsoft.Json.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\RestSharp.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\Castle.Core.xml
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\Castle.Windsor.xml
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\Newtonsoft.Json.xml
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\RestSharp.xml
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\obj\Debug\ParentControl.Infrastructure.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\obj\Debug\ParentControl.Infrastructure.pdb
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\obj\Debug\ParentControl.Infrastructure.csprojResolveAssemblyReference.cache
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\ParentControl.DTO.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\ParentControl.DTO.pdb
+D:\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\ParentControl.Infrastructure.dll.config
+D:\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\ParentControl.Infrastructure.dll
+D:\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\ParentControl.Infrastructure.pdb
+D:\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\Castle.Core.dll
+D:\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\Castle.Windsor.dll
+D:\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\ParentControl.DTO.dll
+D:\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\RestSharp.dll
+D:\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\ParentControl.DTO.pdb
+D:\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\Castle.Core.xml
+D:\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\Castle.Windsor.xml
+D:\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Debug\RestSharp.xml
+D:\Projects\ParentControl.Server\ParentControl.Infrastructure\obj\Debug\ParentControl.Infrastructure.csprojResolveAssemblyReference.cache
+D:\Projects\ParentControl.Server\ParentControl.Infrastructure\obj\Debug\ParentControl.Infrastructure.dll
+D:\Projects\ParentControl.Server\ParentControl.Infrastructure\obj\Debug\ParentControl.Infrastructure.pdb

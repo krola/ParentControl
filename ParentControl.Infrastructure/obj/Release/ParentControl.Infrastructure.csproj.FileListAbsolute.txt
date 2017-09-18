@@ -1,0 +1,16 @@
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Release\ParentControl.Infrastructure.dll.config
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Release\ParentControl.Infrastructure.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Release\ParentControl.Infrastructure.pdb
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Release\Newtonsoft.Json.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Release\RestSharp.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Release\Newtonsoft.Json.xml
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Release\RestSharp.xml
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\obj\Release\ParentControl.Infrastructure.csprojResolveAssemblyReference.cache
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\obj\Release\ParentControl.Infrastructure.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\obj\Release\ParentControl.Infrastructure.pdb
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Release\Castle.Core.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Release\Castle.Windsor.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Release\Castle.Core.xml
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Release\Castle.Windsor.xml
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Release\ParentControl.DTO.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Infrastructure\bin\Release\ParentControl.DTO.pdb

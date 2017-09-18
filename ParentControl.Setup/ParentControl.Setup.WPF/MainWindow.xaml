@@ -1,0 +1,19 @@
+﻿<Window x:Class="ParentControl.Setup.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ParentControl.Setup.WPF"
+        mc:Ignorable="d"
+        Title="Parent Control Setup" Height="350" Width="525" Icon="MvvmCross.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0.15*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="button" Content="Next" HorizontalAlignment="Left" Margin="432,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="button_Copy" Content="Validate" HorizontalAlignment="Left" Margin="352,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="button_Copy1" Content="Previous" HorizontalAlignment="Left" Margin="10,12,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
+        <Grid x:Name="ViewRenderer" Grid.Row="0" HorizontalAlignment="Left" Height="277" VerticalAlignment="Top" Width="517"/>
+    </Grid>
+</Window>

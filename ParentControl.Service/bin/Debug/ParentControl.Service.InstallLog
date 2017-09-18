@@ -1,0 +1,65 @@
+﻿Installing assembly 'C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.InstallLog
+   assemblypath = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe
+Installing service Parent.Control.Service...
+Creating EventLog source Parent.Control.Service in log Application...
+Rolling back assembly 'C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.InstallLog
+   assemblypath = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe
+Restoring event log to previous state for source Parent.Control.Service.
+Installing assembly 'C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.InstallLog
+   assemblypath = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe
+Installing service Parent.Control.Service...
+Service Parent.Control.Service has been successfully installed.
+Creating EventLog source Parent.Control.Service in log Application...
+Committing assembly 'C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.InstallLog
+   assemblypath = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe
+Installing assembly 'C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.InstallLog
+   assemblypath = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe
+Rolling back assembly 'C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.InstallLog
+   assemblypath = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe
+An exception occurred during the Rollback phase of the System.ServiceProcess.ServiceProcessInstaller installer.
+System.NullReferenceException: Object reference not set to an instance of an object.
+An exception occurred during the Rollback phase of the installation. This exception will be ignored and the rollback will continue. However, the machine might not fully revert to its initial state after the rollback is complete.
+Installing assembly 'C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.InstallLog
+   assemblypath = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe
+Installing service Parent.Control.Service...
+Creating EventLog source Parent.Control.Service in log Application...
+Rolling back assembly 'C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.InstallLog
+   assemblypath = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe
+Restoring event log to previous state for source Parent.Control.Service.
+Installing assembly 'C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.InstallLog
+   assemblypath = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe
+Installing service Parent.Control.Service...
+Service Parent.Control.Service has been successfully installed.
+Creating EventLog source Parent.Control.Service in log Application...
+Committing assembly 'C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.InstallLog
+   assemblypath = C:\Users\krola\Documents\Visual Studio 2015\Projects\ParentControl.Server\ParentControl.Service\bin\Debug\ParentControl.Service.exe

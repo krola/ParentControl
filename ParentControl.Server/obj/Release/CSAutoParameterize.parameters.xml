@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="AuthContext-Web.config Connection String" description="AuthContext Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:parentcontrol.database.windows.net,1433;Initial Catalog=Authorization;Persist Security Info=False;User ID=parentcontrol;Password=Q1W2E3R4Zx;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\krola\\documents\\visual\ studio\ 2015\\Projects\\ParentControl\.Server\\ParentControl\.Server\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AuthContext']/@connectionString" />
+  </parameter>
+  <parameter name="AppContext-Web.config Connection String" description="AppContext Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:parentcontrol.database.windows.net,1433;Initial Catalog=ParentControl;Persist Security Info=False;User ID=parentcontrol;Password=Q1W2E3R4Zx;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\krola\\documents\\visual\ studio\ 2015\\Projects\\ParentControl\.Server\\ParentControl\.Server\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AppContext']/@connectionString" />
+  </parameter>
+</parameters>

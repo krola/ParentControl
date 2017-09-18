@@ -1,0 +1,9 @@
+D:\Projects\ParentControl.Server\ParentControl.Mobile.Core\bin\Debug\ParentControl.Mobile.Core.dll
+D:\Projects\ParentControl.Server\ParentControl.Mobile.Core\bin\Debug\ParentControl.Mobile.Core.pdb
+D:\Projects\ParentControl.Server\ParentControl.Mobile.Core\bin\Debug\MvvmCross.Core.dll
+D:\Projects\ParentControl.Server\ParentControl.Mobile.Core\bin\Debug\MvvmCross.Platform.dll
+D:\Projects\ParentControl.Server\ParentControl.Mobile.Core\bin\Debug\MvvmCross.Core.pdb
+D:\Projects\ParentControl.Server\ParentControl.Mobile.Core\bin\Debug\MvvmCross.Platform.pdb
+D:\Projects\ParentControl.Server\ParentControl.Mobile.Core\obj\Debug\ParentControl.Mobile.Core.csprojResolveAssemblyReference.cache
+D:\Projects\ParentControl.Server\ParentControl.Mobile.Core\obj\Debug\ParentControl.Mobile.Core.dll
+D:\Projects\ParentControl.Server\ParentControl.Mobile.Core\obj\Debug\ParentControl.Mobile.Core.pdb

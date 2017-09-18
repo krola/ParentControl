@@ -1,0 +1,30 @@
+SRCSRV: ini ------------------------------------------------
+VERSION=2
+SRCSRV: variables ------------------------------------------
+RAWURL=https://raw.github.com/mvvmcross/mvvmcross/2f8945cc73e86274a38aad4cd3ab2629f1ee54ee/%var2%
+SRCSRVVERCTRL=https
+SRCSRVTRG=%RAWURL%
+SRCSRV: source files ---------------------------------------
+C:\projects\mvvmcross\AssemblyInfo.cs*AssemblyInfo.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\Bindings\La.n.g.cs*MvvmCross-Forms/MvvmCross.Forms/Bindings/La.n.g.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\Core\IMvxContentPage.cs*MvvmCross-Forms/MvvmCross.Forms/Core/IMvxContentPage.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\Presenters\IMvxFormsPageLoader.cs*MvvmCross-Forms/MvvmCross.Forms/Presenters/IMvxFormsPageLoader.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\ViewModels\IMvxMasterDetailViewModel.cs*MvvmCross-Forms/MvvmCross.Forms/ViewModels/IMvxMasterDetailViewModel.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\Core\MvxContentPage.cs*MvvmCross-Forms/MvvmCross.Forms/Core/MvxContentPage.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\Core\MvxFormsApplication.cs*MvvmCross-Forms/MvvmCross.Forms/Core/MvxFormsApplication.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\Presenters\MvxFormsMasterDetailPagePresenter.cs*MvvmCross-Forms/MvvmCross.Forms/Presenters/MvxFormsMasterDetailPagePresenter.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\Presenters\MvxFormsPageLoader.cs*MvvmCross-Forms/MvvmCross.Forms/Presenters/MvxFormsPageLoader.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\Presenters\MvxFormsPagePresenter.cs*MvvmCross-Forms/MvvmCross.Forms/Presenters/MvxFormsPagePresenter.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\ViewModels\MvxMasterDetailViewModel.cs*MvvmCross-Forms/MvvmCross.Forms/ViewModels/MvxMasterDetailViewModel.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\Presenters\MvxPresenterHelpers.cs*MvvmCross-Forms/MvvmCross.Forms/Presenters/MvxPresenterHelpers.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\Bindings\Bi.n.d.cs*MvvmCross-Forms/MvvmCross.Forms/Bindings/Bi.n.d.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\Bindings\IMvxBindingCreator.cs*MvvmCross-Forms/MvvmCross.Forms/Bindings/IMvxBindingCreator.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\Bindings\MvxBindablePropertyExtensionMethods.cs*MvvmCross-Forms/MvvmCross.Forms/Bindings/MvxBindablePropertyExtensionMethods.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\Bindings\MvxBindingCreator.cs*MvvmCross-Forms/MvvmCross.Forms/Bindings/MvxBindingCreator.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\Bindings\MvxFormsBindingBuilder.cs*MvvmCross-Forms/MvvmCross.Forms/Bindings/MvxFormsBindingBuilder.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\Bindings\MvxFormsBindingCreator.cs*MvvmCross-Forms/MvvmCross.Forms/Bindings/MvxFormsBindingCreator.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\Bindings\MvxFormsTargetBindingFactoryRegistry.cs*MvvmCross-Forms/MvvmCross.Forms/Bindings/MvxFormsTargetBindingFactoryRegistry.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\Bindings\Target\MvxBindablePropertyTargetBinding.cs*MvvmCross-Forms/MvvmCross.Forms/Bindings/Target/MvxBindablePropertyTargetBinding.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\Views\MvxImageView.cs*MvvmCross-Forms/MvvmCross.Forms/Views/MvxImageView.cs
+C:\projects\mvvmcross\MvvmCross-Forms\MvvmCross.Forms\Presenters\IMvxFormsPagePresenter.cs*MvvmCross-Forms/MvvmCross.Forms/Presenters/IMvxFormsPagePresenter.cs
+SRCSRV: end ------------------------------------------------

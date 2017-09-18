@@ -1,0 +1,4 @@
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.DTO\bin\Release\ParentControl.DTO.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.DTO\bin\Release\ParentControl.DTO.pdb
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.DTO\obj\Release\ParentControl.DTO.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.DTO\obj\Release\ParentControl.DTO.pdb

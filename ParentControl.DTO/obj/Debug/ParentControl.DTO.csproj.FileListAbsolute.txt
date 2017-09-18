@@ -1,0 +1,10 @@
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.DTO\bin\Debug\ParentControl.DTO.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.DTO\bin\Debug\ParentControl.DTO.pdb
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.DTO\obj\Debug\ParentControl.DTO.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.DTO\obj\Debug\ParentControl.DTO.pdb
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.DTO\obj\Debug\ParentControl.DTO.csprojResolveAssemblyReference.cache
+D:\Projects\ParentControl.Server\ParentControl.DTO\bin\Debug\ParentControl.DTO.dll
+D:\Projects\ParentControl.Server\ParentControl.DTO\bin\Debug\ParentControl.DTO.pdb
+D:\Projects\ParentControl.Server\ParentControl.DTO\obj\Debug\ParentControl.DTO.csprojResolveAssemblyReference.cache
+D:\Projects\ParentControl.Server\ParentControl.DTO\obj\Debug\ParentControl.DTO.dll
+D:\Projects\ParentControl.Server\ParentControl.DTO\obj\Debug\ParentControl.DTO.pdb

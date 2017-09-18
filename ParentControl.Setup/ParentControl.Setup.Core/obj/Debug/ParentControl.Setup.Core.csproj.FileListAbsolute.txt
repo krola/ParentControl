@@ -1,0 +1,13 @@
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Setup\ParentControl.Setup.Core\bin\Debug\ParentControl.Setup.Core.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Setup\ParentControl.Setup.Core\bin\Debug\ParentControl.Setup.Core.pdb
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Setup\ParentControl.Setup.Core\bin\Debug\MvvmCross.Binding.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Setup\ParentControl.Setup.Core\bin\Debug\MvvmCross.Core.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Setup\ParentControl.Setup.Core\bin\Debug\MvvmCross.Localization.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Setup\ParentControl.Setup.Core\bin\Debug\MvvmCross.Platform.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Setup\ParentControl.Setup.Core\bin\Debug\MvvmCross.Binding.pdb
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Setup\ParentControl.Setup.Core\bin\Debug\MvvmCross.Core.pdb
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Setup\ParentControl.Setup.Core\bin\Debug\MvvmCross.Localization.pdb
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Setup\ParentControl.Setup.Core\bin\Debug\MvvmCross.Platform.pdb
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Setup\ParentControl.Setup.Core\obj\Debug\ParentControl.Setup.Core.dll
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Setup\ParentControl.Setup.Core\obj\Debug\ParentControl.Setup.Core.pdb
+C:\Users\krola\documents\visual studio 2015\Projects\ParentControl.Server\ParentControl.Setup\ParentControl.Setup.Core\obj\Debug\ParentControl.Setup.Core.csprojResolveAssemblyReference.cache
