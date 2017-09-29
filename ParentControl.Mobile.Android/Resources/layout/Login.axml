@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:local="http://schemas.android.com/apk/res-auto"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <TextView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login" />
-  <EditText
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      local:MvxBind="Text Login" />
-  <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="Password" />
-  <EditText
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      local:MvxBind="Password" />
-
-  <Button
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text Login" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Password" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        local:MvxBind="Password" />
+    <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Create Bill"
+        android:text="Login"
         android:textSize="40dp"
-        local:MvxBind="Click Login" />
-
+        local:MvxBind="Click LoginCommand" />
 </LinearLayout>

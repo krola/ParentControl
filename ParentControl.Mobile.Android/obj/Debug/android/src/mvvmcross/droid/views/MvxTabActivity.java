@@ -4,8 +4,7 @@ package mvvmcross.droid.views;
 public abstract class MvxTabActivity
 	extends mvvmcross.platform.droid.views.MvxEventSourceTabActivity
 	implements
-		mono.android.IGCUserPeer,
-		android.view.ViewTreeObserver.OnGlobalLayoutListener
+		mono.android.IGCUserPeer
 {
 /** @hide */
 	public static final String __md_methods;
@@ -14,11 +13,13 @@ public abstract class MvxTabActivity
 			"n_setContentView:(I)V:GetSetContentView_IHandler\n" +
 			"n_attachBaseContext:(Landroid/content/Context;)V:GetAttachBaseContext_Landroid_content_Context_Handler\n" +
 			"n_onCreate:(Landroid/os/Bundle;)V:GetOnCreate_Landroid_os_Bundle_Handler\n" +
-			"n_onAttachedToWindow:()V:GetOnAttachedToWindowHandler\n" +
-			"n_onDetachedFromWindow:()V:GetOnDetachedFromWindowHandler\n" +
-			"n_onGlobalLayout:()V:GetOnGlobalLayoutHandler:Android.Views.ViewTreeObserver/IOnGlobalLayoutListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
+			"n_onDestroy:()V:GetOnDestroyHandler\n" +
+			"n_onStart:()V:GetOnStartHandler\n" +
+			"n_onResume:()V:GetOnResumeHandler\n" +
+			"n_onPause:()V:GetOnPauseHandler\n" +
+			"n_onStop:()V:GetOnStopHandler\n" +
 			"";
-		mono.android.Runtime.register ("MvvmCross.Droid.Views.MvxTabActivity, MvvmCross.Droid, Version=5.1.1.0, Culture=neutral, PublicKeyToken=null", MvxTabActivity.class, __md_methods);
+		mono.android.Runtime.register ("MvvmCross.Droid.Views.MvxTabActivity, MvvmCross.Droid, Version=5.2.1.0, Culture=neutral, PublicKeyToken=null", MvxTabActivity.class, __md_methods);
 	}
 
 
@@ -26,7 +27,7 @@ public abstract class MvxTabActivity
 	{
 		super ();
 		if (getClass () == MvxTabActivity.class)
-			mono.android.TypeManager.Activate ("MvvmCross.Droid.Views.MvxTabActivity, MvvmCross.Droid, Version=5.1.1.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
+			mono.android.TypeManager.Activate ("MvvmCross.Droid.Views.MvxTabActivity, MvvmCross.Droid, Version=5.2.1.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
 
@@ -54,28 +55,44 @@ public abstract class MvxTabActivity
 	private native void n_onCreate (android.os.Bundle p0);
 
 
-	public void onAttachedToWindow ()
+	public void onDestroy ()
 	{
-		n_onAttachedToWindow ();
+		n_onDestroy ();
 	}
 
-	private native void n_onAttachedToWindow ();
+	private native void n_onDestroy ();
 
 
-	public void onDetachedFromWindow ()
+	public void onStart ()
 	{
-		n_onDetachedFromWindow ();
+		n_onStart ();
 	}
 
-	private native void n_onDetachedFromWindow ();
+	private native void n_onStart ();
 
 
-	public void onGlobalLayout ()
+	public void onResume ()
 	{
-		n_onGlobalLayout ();
+		n_onResume ();
 	}
 
-	private native void n_onGlobalLayout ();
+	private native void n_onResume ();
+
+
+	public void onPause ()
+	{
+		n_onPause ();
+	}
+
+	private native void n_onPause ();
+
+
+	public void onStop ()
+	{
+		n_onStop ();
+	}
+
+	private native void n_onStop ();
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

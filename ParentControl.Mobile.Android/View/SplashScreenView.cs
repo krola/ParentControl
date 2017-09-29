@@ -9,17 +9,16 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using MvvmCross.Droid.Views;
 
 namespace ParentControl.Mobile.Android.View
 {
-    [Activity(Label = "SplashScreenView", MainLauncher = true)]
-    public class SplashScreenView : Activity
+    [Activity(Label = "SplashScreenView", MainLauncher = true, NoHistory = true)]
+    public class SplashScreenView : MvxSplashScreenActivity
     {
-        protected override void OnCreate(Bundle savedInstanceState)
+        public SplashScreenView() : base(Resource.Layout.SplashScreen)
         {
-            base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.SplashScreen);
-            // Create your application here
+            
         }
     }
 }

@@ -7,3 +7,12 @@ D:\Projects\ParentControl.Server\ParentControl.Mobile.Core\bin\Debug\MvvmCross.P
 D:\Projects\ParentControl.Server\ParentControl.Mobile.Core\obj\Debug\ParentControl.Mobile.Core.csprojResolveAssemblyReference.cache
 D:\Projects\ParentControl.Server\ParentControl.Mobile.Core\obj\Debug\ParentControl.Mobile.Core.dll
 D:\Projects\ParentControl.Server\ParentControl.Mobile.Core\obj\Debug\ParentControl.Mobile.Core.pdb
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\bin\Debug\ParentControl.Mobile.Core.dll
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\bin\Debug\ParentControl.Mobile.Core.pdb
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\bin\Debug\MvvmCross.Core.dll
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\bin\Debug\MvvmCross.Platform.dll
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\bin\Debug\MvvmCross.Core.pdb
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\bin\Debug\MvvmCross.Platform.pdb
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\obj\Debug\ParentControl.Mobile.Core.csproj.CoreCompileInputs.cache
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\obj\Debug\ParentControl.Mobile.Core.dll
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\obj\Debug\ParentControl.Mobile.Core.pdb

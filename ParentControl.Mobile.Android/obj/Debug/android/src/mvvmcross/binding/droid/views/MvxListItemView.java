@@ -14,7 +14,7 @@ public class MvxListItemView
 			"n_onViewAttachedToWindow:(Landroid/view/View;)V:GetOnViewAttachedToWindow_Landroid_view_View_Handler:Android.Views.View/IOnAttachStateChangeListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
 			"n_onViewDetachedFromWindow:(Landroid/view/View;)V:GetOnViewDetachedFromWindow_Landroid_view_View_Handler:Android.Views.View/IOnAttachStateChangeListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
 			"";
-		mono.android.Runtime.register ("MvvmCross.Binding.Droid.Views.MvxListItemView, MvvmCross.Binding.Droid, Version=5.1.1.0, Culture=neutral, PublicKeyToken=null", MvxListItemView.class, __md_methods);
+		mono.android.Runtime.register ("MvvmCross.Binding.Droid.Views.MvxListItemView, MvvmCross.Binding.Droid, Version=5.2.1.0, Culture=neutral, PublicKeyToken=null", MvxListItemView.class, __md_methods);
 	}
 
 
@@ -22,7 +22,7 @@ public class MvxListItemView
 	{
 		super ();
 		if (getClass () == MvxListItemView.class)
-			mono.android.TypeManager.Activate ("MvvmCross.Binding.Droid.Views.MvxListItemView, MvvmCross.Binding.Droid, Version=5.1.1.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
+			mono.android.TypeManager.Activate ("MvvmCross.Binding.Droid.Views.MvxListItemView, MvvmCross.Binding.Droid, Version=5.2.1.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
 
