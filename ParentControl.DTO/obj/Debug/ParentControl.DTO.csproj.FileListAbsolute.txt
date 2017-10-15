@@ -8,3 +8,9 @@ D:\Projects\ParentControl.Server\ParentControl.DTO\bin\Debug\ParentControl.DTO.p
 D:\Projects\ParentControl.Server\ParentControl.DTO\obj\Debug\ParentControl.DTO.csprojResolveAssemblyReference.cache
 D:\Projects\ParentControl.Server\ParentControl.DTO\obj\Debug\ParentControl.DTO.dll
 D:\Projects\ParentControl.Server\ParentControl.DTO\obj\Debug\ParentControl.DTO.pdb
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.DTO\bin\Debug\ParentControl.DTO.dll
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.DTO\bin\Debug\ParentControl.DTO.pdb
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.DTO\obj\Debug\ParentControl.DTO.csprojResolveAssemblyReference.cache
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.DTO\obj\Debug\ParentControl.DTO.csproj.CoreCompileInputs.cache
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.DTO\obj\Debug\ParentControl.DTO.dll
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.DTO\obj\Debug\ParentControl.DTO.pdb

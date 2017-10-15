@@ -16,3 +16,10 @@ C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\bin\De
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\obj\Debug\ParentControl.Mobile.Core.csproj.CoreCompileInputs.cache
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\obj\Debug\ParentControl.Mobile.Core.dll
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\obj\Debug\ParentControl.Mobile.Core.pdb
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\obj\Debug\ParentControl.Mobile.Core.csproj.App.config
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\obj\Debug\ParentControl.Mobile.Core.csprojResolveAssemblyReference.cache
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\bin\Debug\ParentControl.Mobile.Core.dll.config
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Core\bin\Debug\System.Net.Http.Primitives.xml

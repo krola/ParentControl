@@ -50,6 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logger\BaseLogger.cs" />
+    <Compile Include="Logger\FileLogger.cs" />
+    <Compile Include="Logger\LogManager.cs" />
+    <Compile Include="Logger\Sources\FileSource.cs" />
+    <Compile Include="Logger\Sources\ISource.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
