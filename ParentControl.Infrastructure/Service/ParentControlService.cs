@@ -25,14 +25,14 @@ namespace ParentControl.Infrastructure.Service
         private void Initializer()
         {
             var config = _container.Resolve<IConfigService>();
-            var owin = _container.Resolve<IOwinHandler>();
+            var owin = _container.Resolve<IHttpService>();
             if(config.Config.AuthenticationData == null)
             {
                 return;
             }
             try
             {
-                owin.GetLoginToken(config.Config.AuthenticationData.Username, config.Config.AuthenticationData.Password);
+                owin.Authenticate(config.Config.AuthenticationData.Username, config.Config.AuthenticationData.Password);
             }
             catch(Exception ex)
             {
@@ -69,7 +69,7 @@ namespace ParentControl.Infrastructure.Service
         {
             get
             {
-                return _container.Resolve<IOwinHandler>() != null ? _container.Resolve<IOwinHandler>().IsConnected : false;
+                return _container.Resolve<IHttpService>() != null ? _container.Resolve<IHttpService>().IsConnected : false;
             }
         }
 
@@ -78,7 +78,7 @@ namespace ParentControl.Infrastructure.Service
             get
             {
                 return
-                    $"{_container.Resolve<IConfigService>().FullPath}{Environment.NewLine}Token:{_container.Resolve<IOwinHandler>().Token}";
+                    $"{_container.Resolve<IConfigService>().FullPath}{Environment.NewLine}Token:{_container.Resolve<IHttpService>().Token}";
             }
         }
     }

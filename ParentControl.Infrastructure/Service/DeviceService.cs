@@ -18,13 +18,13 @@ namespace ParentControl.Infrastructure.Service
 {
     public class DeviceService : BaseService, IDeviceService
     {
-        public DeviceService(IOwinHandler owinHandler) : base(owinHandler)
+        public DeviceService(IHttpService httpService) : base(httpService)
         {
         }
 
         public IEnumerable<DTO.Device> GetDevices()
         {
-            var result = _owinHandler.GetRequest("/api/Device/GetDevices");
+            var result = HttpService.GetRequest("/api/Device/GetDevices");
             return JsonConvert.DeserializeObject<List<DTO.Device>>(result);
         }
 
@@ -41,7 +41,7 @@ namespace ParentControl.Infrastructure.Service
 
         public void RegisterDevice(Device device)
         {
-            _owinHandler.PostRequest("/api/Device/Register", new RequestParameter[] {
+            HttpService.PostRequest("/api/Device/Register", new RequestParameter[] {
                 new RequestParameter
                 {
                     Key = "DeviceId",

@@ -59,6 +59,8 @@ C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\MvvmCross.Platform.Droid.dll
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\ParentControl.Mobile.Core.dll
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\ParentControl.Mobile.Core.pdb
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\ParentControl.Mobile.Core.dll.config
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\ParentControl.Mobile.Core.dll.mdb
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\MvvmCross.Binding.pdb
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\MvvmCross.Binding.dll.mdb
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\MvvmCross.Binding.Droid.pdb
@@ -84,7 +86,6 @@ C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\obj
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\obj\Debug\res\values\strings.xml
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\obj\Debug\R.cs.flag
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\obj\Debug\uploadflags.txt
-C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\ParentControl.Mobile.Core.dll.mdb
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\ParentControl.Mobile.Android.dll.mdb
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\obj\Debug\android\assets\MvvmCross.Binding.dll.mdb
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\obj\Debug\android\assets\MvvmCross.Binding.Droid.dll.mdb

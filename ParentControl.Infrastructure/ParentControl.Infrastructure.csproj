@@ -41,7 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrap.cs" />
-    <Compile Include="Contracts\IOwinHandler.cs" />
+    <Compile Include="Configuration\ClientConfiguration.cs" />
+    <Compile Include="Configuration\MobileConfiguration.cs" />
+    <Compile Include="Contracts\IConfiguration.cs" />
+    <Compile Include="Contracts\IHttpService.cs" />
     <Compile Include="Contracts\IParentControlService.cs" />
     <Compile Include="Contracts\IConfigService.cs" />
     <Compile Include="Contracts\ISessionTrackerService.cs" />
@@ -52,10 +55,10 @@
     <Compile Include="Helpers\HashHelper.cs" />
     <Compile Include="Mappers\SessionMapper.cs" />
     <Compile Include="Mappers\TimesheetMapper.cs" />
-    <Compile Include="Owin\Model\LoginTokenResult.cs" />
-    <Compile Include="Owin\Model\RequestParameter.cs" />
-    <Compile Include="Owin\Model\Response.cs" />
-    <Compile Include="Owin\OwinHandler.cs" />
+    <Compile Include="Service\Model\LoginTokenResult.cs" />
+    <Compile Include="Service\Model\RequestParameter.cs" />
+    <Compile Include="Service\Model\Response.cs" />
+    <Compile Include="Service\HttpService.cs" />
     <Compile Include="Service\BaseConfig.cs" />
     <Compile Include="Service\DeviceService.cs" />
     <Compile Include="Service\Model\AuthenticationData.cs" />
@@ -95,6 +98,7 @@
       <Name>ParentControl.DTO</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

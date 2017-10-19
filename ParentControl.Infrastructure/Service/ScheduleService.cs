@@ -17,13 +17,13 @@ namespace ParentControl.Infrastructure.Service
         public Schedule GetDeviceSchedule(string device)
         {
             Schedule schedule = null;
-            var scheduleJson = _owinHandler.GetRequest("/api/Schedule/GetSchedule", new RequestParameter[] { new RequestParameter()
+            var scheduleJson = HttpService.GetRequest("/api/Schedule/GetSchedule", new RequestParameter[] { new RequestParameter()
             {
                 Key = "deviceId",
                 Value = device
             } });
 
-            var timesheetsJson = _owinHandler.GetRequest("/api/Timesheet/GetDeviceTimsheets", new RequestParameter[] { new RequestParameter()
+            var timesheetsJson = HttpService.GetRequest("/api/Timesheet/GetDeviceTimsheets", new RequestParameter[] { new RequestParameter()
             {
                 Key = "deviceId",
                 Value = device
@@ -37,7 +37,7 @@ namespace ParentControl.Infrastructure.Service
 
         public void AddTimesheet(Timesheet timesheet)
         {
-            var scheduleJson = _owinHandler.PostRequest("/api/Timesheet/CreateTimesheet", new RequestParameter[] {
+            var scheduleJson = HttpService.PostRequest("/api/Timesheet/CreateTimesheet", new RequestParameter[] {
                 new RequestParameter()
             {
                 Key = "DateFrom",
@@ -65,7 +65,7 @@ namespace ParentControl.Infrastructure.Service
             throw new NotImplementedException();
         }
 
-        public ScheduleService(IOwinHandler owinHandler) : base(owinHandler)
+        public ScheduleService(IHttpService httpService) : base(httpService)
         {
         }
     }

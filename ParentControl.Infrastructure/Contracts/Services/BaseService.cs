@@ -8,11 +8,11 @@ namespace ParentControl.Infrastructure.Contracts.Services
 {
     public class BaseService
     {
-        protected IOwinHandler _owinHandler;
+        protected IHttpService HttpService;
 
-        public BaseService(IOwinHandler owinHandler)
+        public BaseService(IHttpService httpService)
         {
-            _owinHandler = owinHandler;
+            HttpService = httpService;
         }
     }
 }

@@ -20,7 +20,7 @@ namespace ParentControl.SetupTool
 {
     public partial class SetupTool : Form
     {
-        private IOwinHandler _owinHandler;
+        private IHttpService _httpService;
         private IConfigService _configService;
         private IParentControlService _parentControlService;
         private Schedule _schedule;
@@ -33,7 +33,7 @@ namespace ParentControl.SetupTool
             }
             _configService = new ConfigService();
             _parentControlService = new ParentControlService();
-            _owinHandler = new OwinHandler(_configService);
+            _httpService = new HttpService(_configService);
             InitializeComponent();
             RefreshControls();
         }
@@ -51,7 +51,7 @@ namespace ParentControl.SetupTool
 
             if (_parentControlService.IsConnected) { 
                 lConnected.Text = "Connected";
-                tbToken.Text = _owinHandler.Token;
+                tbToken.Text = _httpService.Token;
             }
 
             if (_parentControlService.IsConnected)
@@ -72,7 +72,7 @@ namespace ParentControl.SetupTool
         {
             try
             {
-                var token = _owinHandler.GetLoginToken(tbLogin.Text, tbPassword.Text);
+                var token = _httpService.Authenticate(tbLogin.Text, tbPassword.Text);
                 if (string.IsNullOrEmpty(token.AccessToken))
                 {
                     MessageBox.Show("Empty");

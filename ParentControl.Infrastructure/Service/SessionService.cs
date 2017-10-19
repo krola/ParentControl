@@ -24,7 +24,7 @@ namespace ParentControl.Infrastructure.Service
            
             try
             {
-                _owinHandler.PostRequest("/api/Session/Start", session);
+                HttpService.PostRequest("/api/Session/Start", session);
             }
             catch (Exception)
             {
@@ -40,7 +40,7 @@ namespace ParentControl.Infrastructure.Service
             session.SessionEnd = endDate;
             try
             {
-                _owinHandler.PostRequest("/api/Session/End", session);
+                HttpService.PostRequest("/api/Session/End", session);
             }
             catch (Exception)
             {
@@ -54,7 +54,7 @@ namespace ParentControl.Infrastructure.Service
         {
             try
             {
-                var result = _owinHandler.GetRequest("/api/Session/GetSessionsForDay", new RequestParameter[]
+                var result = HttpService.GetRequest("/api/Session/GetSessionsForDay", new RequestParameter[]
                 {
                     new RequestParameter
                     {
@@ -83,7 +83,7 @@ namespace ParentControl.Infrastructure.Service
             try
             {
                 session.DeviceID = deviceId;
-                _owinHandler.PostRequest("/api/Session/AddUpdateSession", session);
+                HttpService.PostRequest("/api/Session/AddUpdateSession", session);
             }
             catch (Exception)
             {
@@ -93,7 +93,7 @@ namespace ParentControl.Infrastructure.Service
 
         }
 
-        public SessionService(IOwinHandler owinHandler) : base(owinHandler)
+        public SessionService(IHttpService httpService) : base(httpService)
         {
 
         }

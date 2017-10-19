@@ -12,9 +12,9 @@ namespace ParentControl.Mobile.Core.ViewModels
 
         private IAuthorizationService _authorizationService;
 
-        public LoginViewModel(IAuthorizationService authorizationService)
+        public LoginViewModel()
         {
-            _authorizationService = authorizationService;
+           // _authorizationService = authorizationService;
         }
 
         public MvxCommand LoginCommand

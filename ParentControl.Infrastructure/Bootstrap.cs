@@ -24,7 +24,7 @@ namespace ParentControl.Infrastructure
         private void RegisterTypes()
         {
             _container.Register(Castle.MicroKernel.Registration.Component.For<IConfigService>().ImplementedBy<ConfigService>());
-            _container.Register(Castle.MicroKernel.Registration.Component.For<IOwinHandler>().ImplementedBy<OwinHandler>());
+            _container.Register(Castle.MicroKernel.Registration.Component.For<IHttpService>().ImplementedBy<HttpService>());
             _container.Register(Castle.MicroKernel.Registration.Component.For<IDeviceService>().ImplementedBy<DeviceService>());
             _container.Register(Castle.MicroKernel.Registration.Component.For<IScheduleService>().ImplementedBy<ScheduleService>());
             _container.Register(Castle.MicroKernel.Registration.Component.For<ISessionService>().ImplementedBy<SessionService>());
