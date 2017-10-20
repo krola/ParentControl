@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ParentControl.DTO;
+using ParentControl.Infrastructure.Configuration;
 using ParentControl.Infrastructure.Contracts;
-using ParentControl.Infrastructure.Owin;
+using ParentControl.Infrastructure.Contracts.Services;
 using ParentControl.Infrastructure.Service;
 using ParentControl.Infrastructure.Service.Model;
 using Device = ParentControl.Infrastructure.Service.Model.Device;
@@ -21,7 +16,7 @@ namespace ParentControl.SetupTool
     public partial class SetupTool : Form
     {
         private IHttpService _httpService;
-        private IConfigService _configService;
+        private IConfiguration _configService;
         private IParentControlService _parentControlService;
         private Schedule _schedule;
         public SetupTool()
@@ -31,7 +26,7 @@ namespace ParentControl.SetupTool
             {
                 throw new Exception("No server in app config.");
             }
-            _configService = new ConfigService();
+            _configService = new ClientConfiguration();
             _parentControlService = new ParentControlService();
             _httpService = new HttpService(_configService);
             InitializeComponent();

@@ -1,5 +1,9 @@
 ﻿using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
+using ParentControl.Core.Configuration;
+using ParentControl.Core.Contracts;
+using ParentControl.Core.Contracts.Services;
+using ParentControl.Core.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +16,8 @@ namespace ParentControl.Mobile.Core
     {
         public App()
         {
-            //Mvx.RegisterType<IBillCalculator, BillCalculator>();
+            Mvx.RegisterType<IConfiguration, Configuration>();
+            Mvx.RegisterSingleton<IHttpService>(new HttpService(Mvx.Resolve<IConfiguration>()));
             //var calcExample = Mvx.Resolve<IBillCalculator>();
 
             // Tells the MvvmCross framework that whenever any code requests an IMvxAppStart reference,

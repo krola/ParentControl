@@ -8,7 +8,8 @@ using Newtonsoft.Json;
 using ParentControl.DTO;
 using ParentControl.Infrastructure.Contracts;
 using ParentControl.Infrastructure.Contracts.Services;
-using ParentControl.Infrastructure.Owin.Model;
+using ParentControl.Infrastructure.Service.Model;
+using Timesheet = ParentControl.DTO.Timesheet;
 
 namespace ParentControl.Infrastructure.Service
 {

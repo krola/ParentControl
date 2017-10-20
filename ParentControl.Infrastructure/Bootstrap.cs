@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Castle.Windsor;
+﻿using Castle.Windsor;
+using ParentControl.Infrastructure.Configuration;
 using ParentControl.Infrastructure.Contracts;
 using ParentControl.Infrastructure.Contracts.Services;
-using ParentControl.Infrastructure.Owin;
 using ParentControl.Infrastructure.Service;
 
 namespace ParentControl.Infrastructure
@@ -23,7 +18,7 @@ namespace ParentControl.Infrastructure
 
         private void RegisterTypes()
         {
-            _container.Register(Castle.MicroKernel.Registration.Component.For<IConfigService>().ImplementedBy<ConfigService>());
+            _container.Register(Castle.MicroKernel.Registration.Component.For<IConfiguration>().ImplementedBy<Configuration.Configuration>());
             _container.Register(Castle.MicroKernel.Registration.Component.For<IHttpService>().ImplementedBy<HttpService>());
             _container.Register(Castle.MicroKernel.Registration.Component.For<IDeviceService>().ImplementedBy<DeviceService>());
             _container.Register(Castle.MicroKernel.Registration.Component.For<IScheduleService>().ImplementedBy<ScheduleService>());

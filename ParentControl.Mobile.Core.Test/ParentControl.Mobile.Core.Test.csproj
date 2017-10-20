@@ -55,12 +55,13 @@
     <Compile Include="Services\AuthorizationTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ParentControl.Mobile.Core\ParentControl.Mobile.Core.csproj">
+    <ProjectReference Include="..\ParentControl.Mobile.Core\ParentControl.Core.csproj">
       <Project>{3853f702-0ecf-4c21-b97d-1b3acffb626d}</Project>
-      <Name>ParentControl.Mobile.Core</Name>
+      <Name>ParentControl.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

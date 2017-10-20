@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using ParentControl.DTO;
 using ParentControl.Infrastructure.Contracts;
 using ParentControl.Infrastructure.Contracts.Services;
-using ParentControl.Infrastructure.Owin.Model;
+using ParentControl.Infrastructure.Service.Model;
+using Session = ParentControl.DTO.Session;
 
 namespace ParentControl.Infrastructure.Service
 {

@@ -22,7 +22,7 @@ namespace ParentControl.Mobile.Core.ViewModels
         private void ConnectToService()
         {
             Task.Delay(5000);
-            _navigationService.Navigate(new LoginViewModel());
+            _navigationService.Navigate<LoginViewModel>();
         }
     }
 }

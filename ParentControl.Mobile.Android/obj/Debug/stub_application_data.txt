@@ -1,2 +1,0 @@
-android.app.Application
-ParentControl.Mobile.Android.ParentControl.Mobile.Android

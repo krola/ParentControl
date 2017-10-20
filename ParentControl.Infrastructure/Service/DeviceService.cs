@@ -10,7 +10,6 @@ using ParentControl.DTO;
 using ParentControl.Infrastructure.Contracts;
 using ParentControl.Infrastructure.Contracts.Services;
 using ParentControl.Infrastructure.Helpers;
-using ParentControl.Infrastructure.Owin.Model;
 using ParentControl.Infrastructure.Service.Model;
 using Device = ParentControl.Infrastructure.Service.Model.Device;
 

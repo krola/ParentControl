@@ -1,5 +1,6 @@
 ﻿using MvvmCross.Core.ViewModels;
-using ParentControl.Mobile.Core.Services.Contracts;
+using MvvmCross.Platform;
+using ParentControl.Core.Contracts.Services;
 
 namespace ParentControl.Mobile.Core.ViewModels
 {
@@ -9,12 +10,11 @@ namespace ParentControl.Mobile.Core.ViewModels
         public string Password { get; set; }
 
         private MvxCommand _loginCommand;
-
-        private IAuthorizationService _authorizationService;
+        private IHttpService _httpService;
 
         public LoginViewModel()
         {
-           // _authorizationService = authorizationService;
+            //_httpService = Mvx.Resolve<IHttpService>();
         }
 
         public MvxCommand LoginCommand
@@ -28,7 +28,7 @@ namespace ParentControl.Mobile.Core.ViewModels
 
         public void LoginAction()
         {
-            _authorizationService.Login(Login, Password);
+            
         }
     }
 }

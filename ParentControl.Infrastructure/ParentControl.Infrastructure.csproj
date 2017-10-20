@@ -41,13 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrap.cs" />
-    <Compile Include="Configuration\ClientConfiguration.cs" />
-    <Compile Include="Configuration\MobileConfiguration.cs" />
+    <Compile Include="Configuration\Configuration.cs" />
+    <Compile Include="Configuration\Model\Authorization.cs" />
     <Compile Include="Contracts\IConfiguration.cs" />
-    <Compile Include="Contracts\IHttpService.cs" />
-    <Compile Include="Contracts\IParentControlService.cs" />
+    <Compile Include="Contracts\Services\IHttpService.cs" />
+    <Compile Include="Contracts\Services\IParentControlService.cs" />
     <Compile Include="Contracts\IConfigService.cs" />
-    <Compile Include="Contracts\ISessionTrackerService.cs" />
+    <Compile Include="Contracts\Services\ISessionTrackerService.cs" />
     <Compile Include="Contracts\Services\BaseService.cs" />
     <Compile Include="Contracts\Services\IDeviceService.cs" />
     <Compile Include="Contracts\Services\IScheduleService.cs" />
@@ -59,7 +59,7 @@
     <Compile Include="Service\Model\RequestParameter.cs" />
     <Compile Include="Service\Model\Response.cs" />
     <Compile Include="Service\HttpService.cs" />
-    <Compile Include="Service\BaseConfig.cs" />
+    <Compile Include="Storage\LocalStorageBase.cs" />
     <Compile Include="Service\DeviceService.cs" />
     <Compile Include="Service\Model\AuthenticationData.cs" />
     <Compile Include="Service\Model\Config.cs" />
@@ -91,12 +91,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ParentControl.DTO\ParentControl.DTO.csproj">
-      <Project>{DF4DEE7D-C94B-4D1D-B550-ACECA51B0283}</Project>
-      <Name>ParentControl.DTO</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Castle.Windsor;
-using Newtonsoft.Json;
 using ParentControl.Infrastructure.Contracts;
 using ParentControl.Infrastructure.Contracts.Services;
-using ParentControl.Infrastructure.Owin;
-using ParentControl.Infrastructure.Owin.Model;
 
 namespace ParentControl.Infrastructure.Service
 {

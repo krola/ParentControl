@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -359,10 +360,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ParentControl.DTO\ParentControl.DTO.csproj">
-      <Project>{DF4DEE7D-C94B-4D1D-B550-ACECA51B0283}</Project>
-      <Name>ParentControl.DTO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ParentControl.Infrastructure\ParentControl.Infrastructure.csproj">
       <Project>{65AC5FA6-80AB-4142-B0FF-1AE1241BAAAD}</Project>
       <Name>ParentControl.Infrastructure</Name>
