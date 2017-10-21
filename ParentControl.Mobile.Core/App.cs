@@ -17,7 +17,8 @@ namespace ParentControl.Mobile.Core
         public App()
         {
             Mvx.RegisterType<IConfiguration, Configuration>();
-            Mvx.RegisterSingleton<IHttpService>(new HttpService(Mvx.Resolve<IConfiguration>()));
+            var config = Mvx.Resolve<IConfiguration>();
+            Mvx.RegisterSingleton<IHttpService>(new HttpService(config));
             //var calcExample = Mvx.Resolve<IBillCalculator>();
 
             // Tells the MvvmCross framework that whenever any code requests an IMvxAppStart reference,
