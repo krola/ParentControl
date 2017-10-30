@@ -47,6 +47,8 @@ namespace ParentControl.Mobile.Android
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView = global::ParentControl.Mobile.Android.Resource.Styleable.MvxListView;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::ParentControl.Mobile.Android.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxItemTemplate = global::ParentControl.Mobile.Android.Resource.Styleable.MvxListView_MvxItemTemplate;
+			global::PCLStorage.Resource.String.ApplicationName = global::ParentControl.Mobile.Android.Resource.String.ApplicationName;
+			global::PCLStorage.Resource.String.Hello = global::ParentControl.Mobile.Android.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -86,11 +88,11 @@ namespace ParentControl.Mobile.Android
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f030000
-			public const int MvvmCrossTagId = 2130903040;
+			// aapt resource value: 0x7f040000
+			public const int MvvmCrossTagId = 2130968576;
 			
-			// aapt resource value: 0x7f030001
-			public const int MvxBindingTagUnique = 2130903041;
+			// aapt resource value: 0x7f040001
+			public const int MvxBindingTagUnique = 2130968577;
 			
 			static Id()
 			{
@@ -127,8 +129,14 @@ namespace ParentControl.Mobile.Android
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040000
-			public const int app_name = 2130968576;
+			// aapt resource value: 0x7f030001
+			public const int ApplicationName = 2130903041;
+			
+			// aapt resource value: 0x7f030000
+			public const int Hello = 2130903040;
+			
+			// aapt resource value: 0x7f030002
+			public const int app_name = 2130903042;
 			
 			static String()
 			{

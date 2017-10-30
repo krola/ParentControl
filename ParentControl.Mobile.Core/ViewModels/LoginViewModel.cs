@@ -10,25 +10,25 @@ namespace ParentControl.Mobile.Core.ViewModels
         public string Password { get; set; }
 
         private MvxCommand _loginCommand;
-        private IHttpService _httpService;
+        private IAccountService _accountService;
 
-        public LoginViewModel()
+        public LoginViewModel(IAccountService accountService)
         {
-            //_httpService = Mvx.Resolve<IHttpService>();
+            _accountService = accountService;
         }
 
         public MvxCommand LoginCommand
         {
             get
             {
-                _loginCommand = _loginCommand ?? new MvxCommand(LoginAction);
+                _loginCommand = _loginCommand ?? new MvxCommand(LoginActionAsync);
                 return _loginCommand;
             }
         }
 
-        public void LoginAction()
+        public async void LoginActionAsync()
         {
-            
+            var result = await _accountService.AuthenticateAsync(Login, Password);
         }
     }
 }

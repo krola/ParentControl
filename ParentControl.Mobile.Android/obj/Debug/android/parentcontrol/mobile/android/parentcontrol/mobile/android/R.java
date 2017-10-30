@@ -67,8 +67,8 @@ containing a value of this type.
         public static final int MvxTemplate=0x7f010002;
     }
     public static final class id {
-        public static final int MvvmCrossTagId=0x7f030000;
-        public static final int MvxBindingTagUnique=0x7f030001;
+        public static final int MvvmCrossTagId=0x7f040000;
+        public static final int MvxBindingTagUnique=0x7f040001;
     }
     public static final class layout {
         public static final int login=0x7f020000;
@@ -76,7 +76,9 @@ containing a value of this type.
         public static final int splashscreen=0x7f020002;
     }
     public static final class string {
-        public static final int app_name=0x7f040000;
+        public static final int ApplicationName=0x7f030001;
+        public static final int Hello=0x7f030000;
+        public static final int app_name=0x7f030002;
     }
     public static final class styleable {
         /** Attributes that can be used with a MvxBinding.

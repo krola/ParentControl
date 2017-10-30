@@ -19,7 +19,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        local:MvxBind="Password" />
+        local:MvxBind="Text Password" />
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

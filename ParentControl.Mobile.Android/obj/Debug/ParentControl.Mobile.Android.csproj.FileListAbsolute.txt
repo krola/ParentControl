@@ -84,16 +84,12 @@ C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\obj
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\obj\Debug\uploadflags.txt
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\ParentControl.Core.dll
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\PCLStorage.Abstractions.dll
-C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\RestSharp.Portable.HttpClient.dll
-C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\RestSharp.Portable.Core.dll
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\ParentControl.DTO.dll
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\Newtonsoft.Json.dll
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\PCLStorage.dll
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\ParentControl.Core.pdb
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\ParentControl.Core.dll.config
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\PCLStorage.Abstractions.xml
-C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\RestSharp.Portable.HttpClient.xml
-C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\RestSharp.Portable.Core.xml
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\ParentControl.DTO.pdb
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\Newtonsoft.Json.xml
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\PCLStorage.xml
@@ -113,3 +109,5 @@ C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\obj
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\obj\Debug\android\assets\ParentControl.Core.dll.mdb
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\obj\Debug\android\assets\ParentControl.DTO.dll.mdb
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\obj\Debug\android\assets\ParentControl.Mobile.Android.dll.mdb
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\PortableRest.dll
+C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Mobile.Android\bin\Debug\PortableRest.xml
