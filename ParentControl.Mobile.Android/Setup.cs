@@ -19,11 +19,22 @@ namespace ParentControl.Mobile.Android
     {
         public Setup(Context applicationContext) : base(applicationContext)
         {
+            AppDomain.CurrentDomain.UnhandledException += HandleUnhandledException;
         }
 
         protected override IMvxApplication CreateApp()
         {
             return new App();
+        }
+
+        protected void HandleUnhandledException(object sender, UnhandledExceptionEventArgs args)
+        {
+            Exception e = (Exception)args.ExceptionObject;
+
+            // log won't be available, because dalvik is destroying the process
+            //Log.Debug (logTag, "MyHandler caught : " + e.Message);
+            // instead, your err handling code shoudl be run:
+            Console.WriteLine("========= MyHandler caught : " + e.Message);
         }
     }
 }

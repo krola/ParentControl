@@ -4,32 +4,36 @@ using ParentControl.Infrastructure.Contracts;
 using ParentControl.Infrastructure.Contracts.Services;
 using ParentControl.Infrastructure.Service.Model;
 using RestSharp;
+using Authorization = ParentControl.DTO.Authorization;
 
 namespace ParentControl.Infrastructure.Service
 {
     public class HttpService : IHttpService
     {
         private RestClient _client;
-        private LoginTokenResult _token;
+        private Authorization _authorization;
 
         public HttpService(IConfiguration config)
         {
             if (!string.IsNullOrEmpty(config.ApiAddress)) { _client = new RestClient(config.ApiAddress); }
             
         }
-        public LoginTokenResult Authenticate(string username, string password)
+        public Authorization Authenticate(string username, string password)
         {
-            var request = new RestRequest("Token", Method.POST);
-            request.AddParameter("grant_type", "password");
-            request.AddParameter("username", username);
-            request.AddParameter("password", password);
+            var loginDTO = new LogInDTO()
+            {
+                UserName = username,
+                Password = password
+            };
 
-            // execute the request
-            IRestResponse response = _client.Execute(request);
-            var content = response.Content; // raw content as 
-            var result = JsonConvert.DeserializeObject<LoginTokenResult>(content);
-            _token = result;
-            return result;
+            var request = new RestRequest("api/Authorization", Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            request.AddBody(loginDTO);
+
+            IRestResponse response = _client.Execute<Authorization>(request);
+            var content = response.Content;
+            _authorization = JsonConvert.DeserializeObject<Authorization>(content);
+            return _authorization;
         }
 
         public string GetRequest(string url, params RequestParameter[] parameters)
@@ -48,7 +52,7 @@ namespace ParentControl.Infrastructure.Service
         private RestRequest RestRequest(string url)
         {
             var request = new RestRequest(url);
-            request.AddHeader("Authorization", string.Format("Bearer {0}", _token.AccessToken));
+            request.AddHeader("Authorization", string.Format("bearer {0}", _authorization.Token));
             return request;
         }
 
@@ -85,15 +89,30 @@ namespace ParentControl.Infrastructure.Service
             };
         }
 
+        public Response PutRequest(string url, object body)
+        {
+            var request = RestRequest(url);
+            request.Method = Method.PUT;
+            request.RequestFormat = DataFormat.Json;
+            request.AddBody(body);
+
+            IRestResponse response = _client.Execute(request);
+            return new Response()
+            {
+                Success = response.StatusCode == HttpStatusCode.OK,
+                Message = response.StatusCode != HttpStatusCode.OK ? response.ErrorMessage : string.Empty
+            };
+        }
+
         public string Token
         {
-            get { return _token?.AccessToken; }
+            get { return _authorization.Token; }
         }
         public bool IsConnected
         {
             get
             {
-                return _token != null ? !string.IsNullOrEmpty(_token.AccessToken) : false;
+                return _authorization != null && !string.IsNullOrEmpty(_authorization.Token);
             }
         }
     }

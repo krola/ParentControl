@@ -17,15 +17,15 @@ namespace ParentControl.Infrastructure.Service
 
         private void Initializer()
         {
-            var config = _container.Resolve<IConfigService>();
+            var config = _container.Resolve<IConfiguration>();
             var owin = _container.Resolve<IHttpService>();
-            if(config.Config.AuthenticationData == null)
+            if(string.IsNullOrEmpty(config.Login) && string.IsNullOrEmpty(config.Password))
             {
                 return;
             }
             try
             {
-                owin.Authenticate(config.Config.AuthenticationData.Username, config.Config.AuthenticationData.Password);
+                owin.Authenticate(config.Login, config.Password);
             }
             catch(Exception ex)
             {
@@ -33,46 +33,20 @@ namespace ParentControl.Infrastructure.Service
             }
         }
 
-        public IDeviceService DeviceService
-        {
-            get { return _container.Resolve<IDeviceService>(); }
-        }
+        public IDeviceService DeviceService => _container.Resolve<IDeviceService>();
 
-        public IScheduleService ScheduleService
-        {
-            get { return _container.Resolve<IScheduleService>(); }
-        }
+        public IScheduleService ScheduleService => _container.Resolve<IScheduleService>();
 
-        public ISessionService SessionService
-        {
-            get { return _container.Resolve<ISessionService>(); }
-        }
+        public ITimesheetService TimesheetService => _container.Resolve<ITimesheetService>();
 
-        public IConfigService ConfigService
-        {
-            get { return _container.Resolve<IConfigService>(); }
-        }
+        public ISessionService SessionService => _container.Resolve<ISessionService>();
 
-        public ISessionTrackerService SessionTrackerService
-        {
-            get { return _container.Resolve<ISessionTrackerService>(); }
-        }
+        public IConfigService ConfigService => _container.Resolve<IConfigService>();
 
-        public bool IsConnected
-        {
-            get
-            {
-                return _container.Resolve<IHttpService>() != null ? _container.Resolve<IHttpService>().IsConnected : false;
-            }
-        }
+        public ILocalSessionTracker LocalSessionTracker => _container.Resolve<ILocalSessionTracker>();
 
-        public string InfoData
-        {
-            get
-            {
-                return
-                    $"{_container.Resolve<IConfigService>().FullPath}{Environment.NewLine}Token:{_container.Resolve<IHttpService>().Token}";
-            }
-        }
+        public bool IsConnected => _container.Resolve<IHttpService>() != null && _container.Resolve<IHttpService>().IsConnected;
+
+        public string InfoData => $"{_container.Resolve<IConfigService>().FullPath}{Environment.NewLine}Token:{_container.Resolve<IHttpService>().Token}";
     }
 }

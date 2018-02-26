@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ParentControl.Infrastructure.Contracts.Services
 {
-    public class BaseService
+    internal class BaseService
     {
         protected IHttpService HttpService;
 

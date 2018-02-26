@@ -1,46 +1,49 @@
-﻿using System;
+﻿                using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
-using ParentControl.Infrastructure.Contracts;
 using ParentControl.Infrastructure.Contracts.Services;
-using ParentControl.Infrastructure.Service.Model;
+                using ParentControl.Infrastructure.Mappers;
+                using ParentControl.Infrastructure.Service.Model;
 using Session = ParentControl.DTO.Session;
 
 namespace ParentControl.Infrastructure.Service
 {
-    public class SessionService : BaseService, ISessionService
+    internal class SessionService : BaseService, ISessionService
     {
-        public Session StartSession(string deviceId)
+        public Session StartSession(int deviceId)
         {
-            var session = new Session()
+            var createSessionParams = new CreateSessionParams()
             {
-                DeviceID = deviceId,
                 SessionStart = DateTime.UtcNow,
-                SessionId = Guid.NewGuid()
+                Id = Guid.NewGuid(),
+                DeviceId = deviceId
             };
            
             try
             {
-                HttpService.PostRequest("/api/Session/Start", session);
+                HttpService.PostRequest("/api/Session", createSessionParams);
             }
             catch (Exception)
             {
                 //log
             }
 
-            return session;
+            return createSessionParams.MapToSession();
         }
 
         public Session EndSession(Session session)
         {
             var endDate = DateTime.UtcNow;
-            session.SessionEnd = endDate;
+            var updateSessionParams = new UpdateSessionParams()
+            {
+                Id = session.Id,
+                SessionStart = session.SessionStart,
+                SessionEnd = endDate
+            };
+
             try
             {
-                HttpService.PostRequest("/api/Session/End", session);
+                HttpService.PutRequest($"/api/Session", updateSessionParams);
             }
             catch (Exception)
             {
@@ -50,21 +53,21 @@ namespace ParentControl.Infrastructure.Service
             return session;
         }
 
-        public IEnumerable<Session> TodaySessions(string deviceId)
+        public IEnumerable<Session> TodaySessions(int deviceId)
         {
             try
             {
-                var result = HttpService.GetRequest("/api/Session/GetSessionsForDay", new RequestParameter[]
+                var result = HttpService.GetRequest("/api/Session/", new RequestParameter[]
                 {
                     new RequestParameter
                     {
-                        Key = "day",
+                        Key = "Date",
                         Value = DateTime.UtcNow.ToString()
                     },
                     new RequestParameter
                     {
-                        Key = "deviceId",
-                        Value = deviceId
+                        Key = "DeviceId",
+                        Value = deviceId.ToString()
                     },
                 });
 
@@ -78,12 +81,12 @@ namespace ParentControl.Infrastructure.Service
             return new List<Session>();
         }
 
-        public void UpdateSession(Session session, string deviceId)
+        public void UpdateSession(Session session, int deviceId)
         {
             try
             {
-                session.DeviceID = deviceId;
-                HttpService.PostRequest("/api/Session/AddUpdateSession", session);
+                var parameteres = session.MapToUpdateParameters();
+                HttpService.PutRequest("/api/Session", parameteres);
             }
             catch (Exception)
             {

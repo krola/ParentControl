@@ -1,10 +1,11 @@
-﻿using ParentControl.Infrastructure.Service.Model;
+﻿using ParentControl.DTO;
+using ParentControl.Infrastructure.Service.Model;
 
 namespace ParentControl.Infrastructure.Contracts.Services
 {
     public interface IHttpService
     {
-        LoginTokenResult Authenticate(string username, string password);
+        Authorization Authenticate(string username, string password);
 
         string GetRequest(string url, params RequestParameter[] parameters);
 
@@ -12,8 +13,12 @@ namespace ParentControl.Infrastructure.Contracts.Services
 
         Response PostRequest(string url, object body);
 
+        Response PutRequest(string s, object body);
+
         bool IsConnected { get; }
 
         string Token { get; }
+
+        
     }
 }

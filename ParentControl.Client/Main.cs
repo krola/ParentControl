@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Timers;
 using System.Windows.Forms;
 using ParentControl.DTO;
 using ParentControl.Infrastructure.Mappers;
 using ParentControl.Infrastructure.Service;
-using Timer = System.Windows.Forms.Timer;
 
 namespace ParentControl.Client
 {
@@ -82,13 +77,14 @@ namespace ParentControl.Client
                 if (_parentControlService.IsConnected == true)
                 {
                     _mode = Mode.Online;
-                    Log($"Token: {_parentControlService.InfoData}", LogType.Info);
+                    //Log($"Token: {_parentControlService.InfoData}", LogType.Info);
                 }
 
                 if (_mode == Mode.Online)
                 {
                     LoadDevice();
                     LoadSchedule();
+                    LoadTimesheet(); 
                     CleanSessions();
                     SyncSessions();
                     StartSession();
@@ -114,16 +110,23 @@ namespace ParentControl.Client
 
         private bool CanRunOffline()
         {
-            return _parentControlService.ConfigService.Config.Timesheets.Any();
+            try
+            {
+                return _parentControlService.ConfigService.Config.Timesheets.Any();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
         private void CleanSessions()
         {
             var weekBefore = DateTime.UtcNow.Subtract(new TimeSpan(7, 0, 0, 0));
-            _parentControlService.SessionTrackerService.Sessions.Where(d => d.SessionStart.Date < weekBefore.Date).ToList().ForEach(
+            _parentControlService.LocalSessionTracker.Sessions.Where(d => d.SessionStart.Date < weekBefore.Date).ToList().ForEach(
                 s =>
                 {
-                    _parentControlService.SessionTrackerService.RemoveSession(s);
+                    _parentControlService.LocalSessionTracker.RemoveSession(s);
                 });
         }
 
@@ -144,15 +147,30 @@ namespace ParentControl.Client
             var scheduleService = _parentControlService.ScheduleService;
             try
             {
-                
-                _schedule = scheduleService.GetDeviceSchedule(_device.DeviceId);
+
+                _schedule = scheduleService.GetScheduleFor(_device.Id).FirstOrDefault();
                 if (_schedule == null)
                 {
                     throw new Exception("No schedule loaded");
                 }
-                var serverTimesheets = _schedule.Timesheets.Select(t => t.MapToTimesheetServiceModel()).ToList();
-                _parentControlService.ConfigService.SaveTimesheets(serverTimesheets, _schedule.AllowWitoutTimesheet);
+
                 Log($"Schedule loaded", LogType.Info);
+            }
+            catch (Exception e)
+            {
+                var message = $"Error {e.Message}";
+                throw new Exception(message);
+            }
+        }
+
+        private void LoadTimesheet()
+        {
+            var timesheetService = _parentControlService.TimesheetService;
+            try
+            {
+                var timesheets = timesheetService.GetTimesheetFor(_schedule.Id).ToList();
+                _parentControlService.ConfigService.SaveTimesheets(timesheets, _schedule.AllowWitoutTimesheet);
+                Log($"Timesheet loaded", LogType.Info);
             }
             catch (Exception e)
             {
@@ -166,14 +184,19 @@ namespace ParentControl.Client
             var deviceService = _parentControlService.DeviceService;
             try
             {
-                var deviceId = _parentControlService.ConfigService.Config.Device.DeviceId;
+                var deviceId = _parentControlService.ConfigService.Config.Device?.Id;
+                if (deviceId == null)
+                {
+                    throw new Exception("No device configured");
+                }
+
                 _device = deviceService.GetDevices()
-                    .FirstOrDefault(d => new Guid(d.DeviceId) == new Guid(deviceId));
+                    .FirstOrDefault(d => d.Id == deviceId);
                 if (_device == null)
                 {
                     throw new Exception("No device loaded");
                 }
-                Log($"Device loaded: {_device.DeviceId} -> {_device.Name}", LogType.Info);
+                Log($"Device loaded: {_device.Id} -> {_device.Name}", LogType.Info);
             }
             catch (Exception e)
             {
@@ -185,36 +208,38 @@ namespace ParentControl.Client
 
         private void SyncSessions()
         {
-            var localSessions = _parentControlService.SessionTrackerService.Sessions.Where(d => d.SessionStart.Date == DateTime.UtcNow.Date);
-            var remoteSessions = _parentControlService.SessionService.TodaySessions(_device.DeviceId);
+            var localSessions = _parentControlService.LocalSessionTracker.Sessions.Where(d => d.SessionStart.Date == DateTime.UtcNow.Date);
+            var remoteSessions = _parentControlService.SessionService.TodaySessions(_device.Id);
 
             foreach (var remoteSession in remoteSessions)
             {
-                _parentControlService.SessionTrackerService.SaveSession(remoteSession);
+                _parentControlService.LocalSessionTracker.SaveSession(remoteSession);
             }
 
             foreach (var localSession in localSessions)
             {
-                _parentControlService.SessionService.UpdateSession(localSession.MapToSessionDTO(), _device.DeviceId);
+                _parentControlService.SessionService.UpdateSession(localSession, _device.Id);
             }
         }
+
         private void StartSession()
         {
-            _todaySessions = _parentControlService.SessionTrackerService.Sessions?.Where(
-                s => s.SessionStart.Date == DateTime.UtcNow.Date).Select(s => s.MapToSessionDTO()).ToList();
+            _todaySessions = _parentControlService.LocalSessionTracker.Sessions?.Where(
+                s => s.SessionStart.Date == DateTime.UtcNow.Date).ToList();
             if (_todaySessions == null || _todaySessions.All(s => s.SessionEnd != null))
             {
-                if(_mode == Mode.Offline) {
+                if (_mode == Mode.Offline)
+                {
                     _activeSession = new Session()
                     {
                         SessionStart = DateTime.UtcNow,
-                        SessionId = Guid.NewGuid(),
-                        DeviceID = _parentControlService.ConfigService.Config.Device.DeviceId
+                        Id = Guid.NewGuid(),
+                        Device = _parentControlService.ConfigService.Config.Device
                     };
                 }
                 else
                 {
-                    _activeSession = _parentControlService.SessionService.StartSession(_device.DeviceId);
+                    _activeSession = _parentControlService.SessionService.StartSession(_device.Id);
                 }
             }
             else
@@ -222,7 +247,7 @@ namespace ParentControl.Client
                 _activeSession = _todaySessions.First(s => s.SessionEnd == null);
             }
 
-            _parentControlService.SessionTrackerService.SaveSession(_activeSession);
+            _parentControlService.LocalSessionTracker.SaveSession(_activeSession);
         }
 
         private void StartTimer()
@@ -267,19 +292,19 @@ namespace ParentControl.Client
         private void CalculateTime()
         {
             var today = DateTime.UtcNow;
-            var timesheet = _parentControlService.ConfigService.Config.Timesheets.FirstOrDefault(t => today > t.From && today < t.To);
-            if (timesheet == null)
+            var timesheet = _parentControlService.ConfigService.Config.Timesheets.FirstOrDefault(t => today > t.DateFrom && today < t.DateTo);
+            if (timesheet == null)  
             {
                 Log($"No timesheet for today!", LogType.Info);
                 _allowWithoutTimesheet = _parentControlService.ConfigService.Config.AllowOnNoTimesheet;
             }
             else
-            { 
-                Log($"Found timesheet. Total time: {timesheet.TotalTime.ToString("h'h 'm'm 's's'")}", LogType.Info);
+            {
+                Log($"Found timesheet. Total time: {timesheet.Time.ToString("h'h 'm'm 's's'")}", LogType.Info);
                 //session 
                 var allTimeSpendToday = _todaySessions != null ? new TimeSpan(_todaySessions.Where(s => s.SessionEnd != null).Sum(s => s.SessionEnd.Value.Subtract(s.SessionStart).Ticks)) : new TimeSpan();
                 allTimeSpendToday = allTimeSpendToday.Add(today.Subtract(_activeSession.SessionStart));
-                _timeLeft = timesheet.TotalTime.Subtract(allTimeSpendToday);
+                _timeLeft = timesheet.Time.Subtract(allTimeSpendToday);
             }
         }
 
@@ -311,7 +336,7 @@ namespace ParentControl.Client
         private void StopSession()
         {
             _activeSession = _parentControlService.SessionService.EndSession(_activeSession);
-            _parentControlService.SessionTrackerService.SaveSession(_activeSession);
+            _parentControlService.LocalSessionTracker.SaveSession(_activeSession);
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -352,7 +377,7 @@ namespace ParentControl.Client
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             var notify = new Notification(this);
-            notify.Notify("Koniec czasu!", Notification.Anwser.Shutdown);
+            notify.Notify("Koniec czasu!", Notification.Anwser.Ok);
         }
     }
 }

@@ -52,7 +52,7 @@ namespace ParentControl.Infrastructure.Storage
             _fullPath = specificFolder;
         }
 
-        protected void UpdateConfig()
+        protected void UpdateStore()
         {
             var json = JsonConvert.SerializeObject(_store);
             File.WriteAllText(_fullPath, json);

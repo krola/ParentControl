@@ -327,3 +327,13 @@ C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Server\obj\Debug\P
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Server\obj\Debug\ParentControl.Server.csproj.CoreCompileInputs.cache
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Server\obj\Debug\ParentControl.Server.dll
 C:\Users\krzysztof.rola\Documents\ParentControl\ParentControl.Server\obj\Debug\ParentControl.Server.pdb
+C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.Server\obj\Debug\ParentControl.Server.csprojResolveAssemblyReference.cache
+C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.Server\obj\Debug\ParentControl.Server.AuthMigrations.InitialCreate.resources
+C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.Server\obj\Debug\ParentControl.Server.Migrations.InitialCreate.resources
+C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.Server\obj\Debug\ParentControl.Server.Migrations.UpdateAuthScheme.resources
+C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.Server\obj\Debug\ParentControl.Server.Migrations.newuserscheme.resources
+C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.Server\obj\Debug\ParentControl.Server.Migrations.AddDeviceId.resources
+C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.Server\obj\Debug\ParentControl.Server.Migrations.NewSessionScheme.resources
+C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.Server\obj\Debug\ParentControl.Server.Migrations.AllowWithNoTimesheet.resources
+C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.Server\obj\Debug\ParentControl.Server.csproj.GenerateResource.Cache
+C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.Server\obj\Debug\ParentControl.Server.csproj.CoreCompileInputs.cache

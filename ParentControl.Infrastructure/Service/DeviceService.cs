@@ -1,55 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
-using ParentControl.DTO;
-using ParentControl.Infrastructure.Contracts;
 using ParentControl.Infrastructure.Contracts.Services;
-using ParentControl.Infrastructure.Helpers;
 using ParentControl.Infrastructure.Service.Model;
-using Device = ParentControl.Infrastructure.Service.Model.Device;
 
 namespace ParentControl.Infrastructure.Service
 {
-    public class DeviceService : BaseService, IDeviceService
+    internal class DeviceService : BaseService, IDeviceService
     {
+        private const string ApiEndpoint = "/api/Device";
+
         public DeviceService(IHttpService httpService) : base(httpService)
         {
         }
 
         public IEnumerable<DTO.Device> GetDevices()
         {
-            var result = HttpService.GetRequest("/api/Device/GetDevices");
+            var result = HttpService.GetRequest(ApiEndpoint);
             return JsonConvert.DeserializeObject<List<DTO.Device>>(result);
         }
 
-        public string GenerateDeviceId()
+        public void RegisterDevice(string deviceName)
         {
-            var deviceKey = Environment.MachineName + "_" + System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            return deviceKey.HashString();
-        }
-
-        public string GenerateDeviceId(string username)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RegisterDevice(Device device)
-        {
-            HttpService.PostRequest("/api/Device/Register", new RequestParameter[] {
+            HttpService.PostRequest(ApiEndpoint, new RequestParameter[] {
                 new RequestParameter
                 {
-                    Key = "DeviceId",
-                    Value = device.DeviceId
-                },
-                new RequestParameter
-                {
-                    Key = "Name",
-                    Value = device.DeviceName
+                    Key = "name",
+                    Value = deviceName
                 }, 
             });
         }

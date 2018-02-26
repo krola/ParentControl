@@ -1,21 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ParentControl.DTO;
-using ParentControl.Infrastructure.Service.Model;
-using Session = ParentControl.Infrastructure.Service.Model.Session;
+﻿using ParentControl.DTO;
 
 namespace ParentControl.Infrastructure.Mappers
 {
     public static class SessionMapper
     {
-        public static DTO.Session MapToSessionDTO(this Session model)
+        public static CreateSessionParams MapToCreateParameters(this Session model)
         {
-            return new DTO.Session()
+            return new CreateSessionParams()
             {
-                SessionId = model.SessionId,
+                Id = model.Id,
+                SessionStart = model.SessionStart,
+                SessionEnd = model.SessionEnd
+            };
+        }
+
+        public static Session MapToSession(this CreateSessionParams model)
+        {
+            return new Session()
+            {
+                Id = model.Id,
+                SessionStart = model.SessionStart,
+                SessionEnd = model.SessionEnd
+            };
+        }
+
+        public static UpdateSessionParams MapToUpdateParameters(this Session model)
+        {
+            return new UpdateSessionParams()
+            {
+                Id = model.Id,
                 SessionStart = model.SessionStart,
                 SessionEnd = model.SessionEnd
             };

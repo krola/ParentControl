@@ -22,5 +22,23 @@ namespace ParentControl.Mobile.Android.View
             SetContentView(Resource.Layout.Login);
             // Create your application here
         }
+
+        protected override void OnPause()
+        {
+            ViewModel.OnUnauthorized -= ViewModel_OnUnauthorized;
+            base.OnPause();
+        }
+
+        protected override void OnResume()
+        {
+            ViewModel.OnUnauthorized -= ViewModel_OnUnauthorized;
+            base.OnResume();
+        }
+
+        private void ViewModel_OnUnauthorized(object sender, GenericWebViewViewModel.UnauthorizedEvent e)
+        {
+            Toast.MakeText(this, $"Selected Monkey {e.Monkey.Name }", ToastLength.Short)
+                .Show();
+        }
     }
 }

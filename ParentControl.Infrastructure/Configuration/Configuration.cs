@@ -11,9 +11,12 @@ namespace ParentControl.Infrastructure.Configuration
             
         }
 
-        public string ApiAddress => "http://parentcontrolapi.azurewebsites.net";
-        public string Login { get { return Store.Login; } set { Store.Login = value; UpdateConfig(); } }
-        public string Password { get { return Store.Password; } set { Store.Password = value; UpdateConfig(); } }
-        public bool AutoLogin { get { return Store.AutoLogin; } set { Store.AutoLogin = value; UpdateConfig(); } }
+        public string ApiAddress => "http://localhost:5000/";
+        //public string Login { get { return Store.Login; } set { Store.Login = value; UpdateStore(); } }
+        //public string Password { get { return Store.Password; } set { Store.Password = value; UpdateStore(); } }
+
+        public string Login { get { return "test"; } set { Store.Login = value; UpdateStore(); } }
+        public string Password { get { return "test"; } set { Store.Password = value; UpdateStore(); } }
+        public bool AutoLogin { get { return Store.AutoLogin; } set { Store.AutoLogin = value; UpdateStore(); } }
     }
 }

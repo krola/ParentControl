@@ -6,11 +6,9 @@ using ParentControl.Core.Contracts.Services;
 using ParentControl.Core.Services.Model;
 using System;
 using System.Net.Http;
-using PortableRest;
-using System.Text;
-using System.Net.Http.Headers;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 namespace ParentControl.Core.Service
 {
@@ -18,82 +16,83 @@ namespace ParentControl.Core.Service
     {
         private AuthorizationResult _token;
         private IConfiguration _configuration;
-        private RestClient _client;
+        //private RestClient _client;
         private Uri _baseAddress;
 
         public HttpService(IConfiguration config)
         {
             _configuration = config;
-            _client = new RestClient();
+            //_client = new RestClient();
             _baseAddress = new Uri(config.ApiAddress);
         }
 
         public async Task<string> GetRequestAsync(string url, params RequestParameter[] parameters)
         {
-            var request = RestRequest(url);
-            foreach (var requestParameter in parameters)
-            {
-                request.AddParameter(requestParameter.Key, requestParameter.Value);
-            }
-            var response = await _client.ExecuteAsync<string>(request);
-            return response; // raw content as 
+            //var request = RestRequest(url);
+            //foreach (var requestParameter in parameters)
+            //{
+            //    request.AddParameter(requestParameter.Key, requestParameter.Value);
+            //}
+            //var response = await _client.ExecuteAsync<string>(request);
+            return null; // raw content as 
         }
 
-        private RestRequest RestRequest(string url)
-        {
-            var request = new RestRequest(url);
-            if(_token != null)
-            {
-                request.AddHeader("Authorization", string.Format("Bearer {0}", _token.AccessToken));
-            }
-            return request;
-        }
+        //private RestRequest RestRequest(string url)
+        //{
+        //    var request = new RestRequest(url);
+        //    if(_token != null)
+        //    {
+        //        request.AddHeader("Authorization", string.Format("Bearer {0}", _token.AccessToken));
+        //    }
+        //    return request;
+        //}
 
         public async Task<Response> PostRequestAsync(string url, params RequestParameter[] parameters)
         {
-           
-
-            //var request = RestRequest(new Uri(_baseAddress, url).AbsoluteUri);
-            //request.Method = HttpMethod.Post;
-            //request.ReturnRawString = true;
-            //foreach(var para in parameters)
-            //{
-            //    request.AddParameter(para.Key, para.Value);
-            //}
-
             try
             {
-                //_client.AddHeader("Content-Type", "application/x-www-form-urlencoded");
-                //var response = await _client.ExecuteAsync<string>(request);
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = _baseAddress;
+                    var newUrl = Path.Combine(_baseAddress.AbsoluteUri, url);
+                    var httpRequest = new HttpRequestMessage(new HttpMethod("POST"), newUrl);
                     var content = parameters.Select(p => new KeyValuePair<string, string>(p.Key, p.Value));
                     var contentEncoded = new FormUrlEncodedContent(content);
-                    var result = await client.PostAsync("/token", contentEncoded);
+                    httpRequest.Content = contentEncoded;
+                    var result = await client.SendAsync(httpRequest);
                     var resultContent = await result.Content.ReadAsStringAsync();
-                }
-
-                return null;
+                    if(result.StatusCode == HttpStatusCode.OK)
+                    {
+                        return new Response()
+                        {
+                            Data = resultContent,
+                            Success = true
+                        };
+                    }
+                    else
+                    {
+                        throw new UnauthorizedAccessException();
+                    }
+                    
+                }               
             }
             catch (Exception ex)
             {
-                return null;
+                throw ex;
             }
 
         }
 
         public async Task<Response> PostRequestAsync(string url, object body)
         {
-            var request = RestRequest(new Uri(_baseAddress, url).AbsoluteUri);
-            request.ContentType = ContentTypes.FormUrlEncoded;
-            request.Method = HttpMethod.Post;
+            //var request = RestRequest(new Uri(_baseAddress, url).AbsoluteUri);
+            //request.ContentType = ContentTypes.FormUrlEncoded;
+            //request.Method = HttpMethod.Post;
          
 
             try
             {
-                var response = await _client.ExecuteAsync<Response>(request);
-                return response;
+               // var response = await _client.ExecuteAsync<Response>(request);
+                return null;
             }
             catch (HttpRequestException ex)
             {

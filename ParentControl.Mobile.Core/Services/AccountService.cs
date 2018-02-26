@@ -37,9 +37,16 @@ namespace ParentControl.Core.Services
                 }
             });
 
-            var result = JsonConvert.DeserializeObject<AuthorizationResult>(response.Data);
-            _httpService.AuthenticationData = result;
-            return _httpService.IsAuthenticated;
+            try
+            {
+                var result = JsonConvert.DeserializeObject<AuthorizationResult>(response.Data);
+                _httpService.AuthenticationData = result;
+                return _httpService.IsAuthenticated;
+            }
+            catch(UnauthorizedAccessException ex)
+            {
+                return false;
+            }
         }
     }
 }
