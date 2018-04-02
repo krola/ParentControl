@@ -208,7 +208,7 @@ namespace ParentControl.Client
 
         private void SyncSessions()
         {
-            var localSessions = _parentControlService.LocalSessionTracker.Sessions.Where(d => d.SessionStart.Date == DateTime.UtcNow.Date);
+            var localSessions = _parentControlService.LocalSessionTracker.Sessions.Where(d => d.SessionStart.Date == DateTime.UtcNow.Date).ToList();
             var remoteSessions = _parentControlService.SessionService.TodaySessions(_device.Id);
 
             foreach (var remoteSession in remoteSessions)
@@ -377,7 +377,7 @@ namespace ParentControl.Client
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             var notify = new Notification(this);
-            notify.Notify("Koniec czasu!", Notification.Anwser.Ok);
+            notify.Notify("Koniec czasu!", Notification.Anwser.Shutdown);
         }
     }
 }

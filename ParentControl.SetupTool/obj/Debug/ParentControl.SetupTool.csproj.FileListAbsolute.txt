@@ -47,3 +47,10 @@ C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.SetupTool\obj\Debug\P
 C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.SetupTool\obj\Debug\ParentControl.SetupTool.csproj.CoreCompileInputs.cache
 C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.SetupTool\obj\Debug\ParentControl.SetupTool.exe
 C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.SetupTool\obj\Debug\ParentControl.SetupTool.pdb
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.SetupTool\obj\Debug\ParentControl.SetupTool.csprojResolveAssemblyReference.cache
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.SetupTool\obj\Debug\ParentControl.SetupTool.SetupTool.resources
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.SetupTool\obj\Debug\ParentControl.SetupTool.Properties.Resources.resources
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.SetupTool\obj\Debug\ParentControl.SetupTool.csproj.GenerateResource.cache
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.SetupTool\obj\Debug\ParentControl.SetupTool.csproj.CoreCompileInputs.cache
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.SetupTool\obj\Debug\ParentControl.SetupTool.exe
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.SetupTool\obj\Debug\ParentControl.SetupTool.pdb

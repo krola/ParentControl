@@ -11,7 +11,7 @@ namespace ParentControl.Infrastructure.Configuration
             
         }
 
-        public string ApiAddress => "http://localhost:5000/";
+        public string ApiAddress => "http://192.168.1.200:5000/";
         //public string Login { get { return Store.Login; } set { Store.Login = value; UpdateStore(); } }
         //public string Password { get { return Store.Password; } set { Store.Password = value; UpdateStore(); } }
 

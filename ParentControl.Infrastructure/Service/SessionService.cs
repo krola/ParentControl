@@ -86,6 +86,7 @@ namespace ParentControl.Infrastructure.Service
             try
             {
                 var parameteres = session.MapToUpdateParameters();
+                parameteres.DeviceId = deviceId;
                 HttpService.PutRequest("/api/Session", parameteres);
             }
             catch (Exception)

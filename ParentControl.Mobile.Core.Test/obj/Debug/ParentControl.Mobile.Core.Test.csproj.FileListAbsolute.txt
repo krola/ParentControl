@@ -71,3 +71,7 @@ C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.Mobile.Core.Test\obj\
 C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.Mobile.Core.Test\obj\Debug\ParentControl.Mobile.Core.Test.csproj.CoreCompileInputs.cache
 C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.Mobile.Core.Test\obj\Debug\ParentControl.Mobile.Core.Test.dll
 C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.Mobile.Core.Test\obj\Debug\ParentControl.Mobile.Core.Test.pdb
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.Mobile.Core.Test\obj\Debug\ParentControl.Mobile.Core.Test.csprojResolveAssemblyReference.cache
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.Mobile.Core.Test\obj\Debug\ParentControl.Mobile.Core.Test.csproj.CoreCompileInputs.cache
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.Mobile.Core.Test\obj\Debug\ParentControl.Mobile.Core.Test.dll
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.Mobile.Core.Test\obj\Debug\ParentControl.Mobile.Core.Test.pdb

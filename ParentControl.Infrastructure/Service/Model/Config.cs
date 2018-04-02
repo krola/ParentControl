@@ -5,7 +5,7 @@ namespace ParentControl.Infrastructure.Service.Model
 {
     public class Config
     {
-        public AuthenticationData AuthenticationData { get; set; }
+        //public AuthenticationData AuthenticationData { get; set; }
 
         public string ServerAddress { get; set; }
 

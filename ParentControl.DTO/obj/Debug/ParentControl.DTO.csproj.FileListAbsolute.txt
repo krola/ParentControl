@@ -25,3 +25,17 @@ C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.DTO\bin\Debug\Xamarin
 C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.DTO\obj\Debug\ParentControl.DTO.csproj.CoreCompileInputs.cache
 C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.DTO\obj\Debug\ParentControl.DTO.dll
 C:\Users\Krzysiek\Source\Repos\ParentControl\ParentControl.DTO\obj\Debug\ParentControl.DTO.pdb
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.DTO\bin\Debug\ParentControl.DTO.dll
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.DTO\bin\Debug\ParentControl.DTO.pdb
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.DTO\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.DTO\bin\Debug\Xamarin.Forms.Platform.dll
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.DTO\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.DTO\bin\Debug\Xamarin.Forms.Core.pdb
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.DTO\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.DTO\bin\Debug\Xamarin.Forms.Platform.pdb
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.DTO\bin\Debug\Xamarin.Forms.Xaml.pdb
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.DTO\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.DTO\obj\Debug\ParentControl.DTO.csproj.CoreCompileInputs.cache
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.DTO\obj\Debug\ParentControl.DTO.csproj.CopyComplete
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.DTO\obj\Debug\ParentControl.DTO.dll
+C:\Users\Dom\Source\Repos\ParentControl\ParentControl.DTO\obj\Debug\ParentControl.DTO.pdb
