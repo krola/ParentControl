@@ -26,7 +26,7 @@ namespace ParentControl.Infrastructure.Service
                 Password = password
             };
 
-            var request = new RestRequest("api/Authorization", Method.POST);
+            var request = new RestRequest("/api/Authorization/Token", Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddBody(loginDTO);
 
@@ -52,7 +52,7 @@ namespace ParentControl.Infrastructure.Service
         private RestRequest RestRequest(string url)
         {
             var request = new RestRequest(url);
-            request.AddHeader("Authorization", string.Format("bearer {0}", _authorization.Token));
+            request.AddHeader("Authorization", string.Format("bearer {0}", _authorization.AccessToken.Value));
             return request;
         }
 
@@ -106,13 +106,13 @@ namespace ParentControl.Infrastructure.Service
 
         public string Token
         {
-            get { return _authorization.Token; }
+            get { return _authorization.AccessToken?.Value; }
         }
         public bool IsConnected
         {
             get
             {
-                return _authorization != null && !string.IsNullOrEmpty(_authorization.Token);
+                return _authorization != null && !string.IsNullOrEmpty(_authorization.AccessToken?.Value);
             }
         }
     }

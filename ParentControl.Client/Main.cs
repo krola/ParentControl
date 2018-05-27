@@ -355,7 +355,7 @@ namespace ParentControl.Client
         {
             _form = (Form)sender;
             _form.ShowInTaskbar = false;
-            _form.Opacity = 0;
+           // _form.Opacity = 0;
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)

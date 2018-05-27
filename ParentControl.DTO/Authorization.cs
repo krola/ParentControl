@@ -2,6 +2,7 @@
 {
     public class Authorization
     {
-        public string Token { get; set; }
+        public Token AccessToken { get; set; }
+        public Token RefreshToken { get; set; }
     }
 }
