@@ -12,11 +12,23 @@ namespace ParentControl.Infrastructure.Configuration
         }
 
         public string ApiAddress => "http://50.3.70.54:5000/";
-        //public string Login { get { return Store.Login; } set { Store.Login = value; UpdateStore(); } }
-        //public string Password { get { return Store.Password; } set { Store.Password = value; UpdateStore(); } }
 
-        public string Login { get { return "test"; } set { Store.Login = value; UpdateStore(); } }
-        public string Password { get { return "test"; } set { Store.Password = value; UpdateStore(); } }
-        public bool AutoLogin { get { return Store.AutoLogin; } set { Store.AutoLogin = value; UpdateStore(); } }
+        public string Login
+        {
+            get => Store.Login;
+            set { Store.Login = value; UpdateStore(); }
+        }
+
+        public string Password
+        {
+            get => Store.Password;
+            set { Store.Password = value; UpdateStore(); }
+        }
+
+        public bool AutoLogin
+        {
+            get => Store.AutoLogin;
+            set { Store.AutoLogin = value; UpdateStore(); }
+        }
     }
 }
