@@ -7,7 +7,7 @@ using ParentControl.Infrastructure.Storage;
 
 namespace ParentControl.Infrastructure.Service
 {
-    public class ConfigService : LocalStorageBase<Config>, IConfigService
+    public class ConfigService : LocalStorageBase<DeviceConfiguration>, IConfigService
     {
         
 
@@ -20,7 +20,7 @@ namespace ParentControl.Infrastructure.Service
             throw new System.NotImplementedException();
         }
 
-        public Config Config => Store;
+        public DeviceConfiguration Config => Store;
 
         public void SaveServerAddress(string server)
         {
@@ -36,7 +36,7 @@ namespace ParentControl.Infrastructure.Service
         {
             Store.Timesheets = timesheets;
             Store.AllowOnNoTimesheet = allowWitoutTimesheet;
-            UpdateStore();
+            SaveStore();
         }
     }
 }

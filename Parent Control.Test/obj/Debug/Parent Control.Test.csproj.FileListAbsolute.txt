@@ -1,0 +1,10 @@
+C:\Code\ParentControlApp\Parent Control.Test\bin\Debug\Parent Control.Test.exe.config
+C:\Code\ParentControlApp\Parent Control.Test\bin\Debug\Parent Control.Test.exe
+C:\Code\ParentControlApp\Parent Control.Test\bin\Debug\Parent Control.Test.pdb
+C:\Code\ParentControlApp\Parent Control.Test\bin\Debug\Microsoft.ServiceBus.dll
+C:\Code\ParentControlApp\Parent Control.Test\bin\Debug\Microsoft.ServiceBus.xml
+C:\Code\ParentControlApp\Parent Control.Test\obj\Debug\Parent Control.Test.csprojAssemblyReference.cache
+C:\Code\ParentControlApp\Parent Control.Test\obj\Debug\Parent Control.Test.csproj.CoreCompileInputs.cache
+C:\Code\ParentControlApp\Parent Control.Test\obj\Debug\Parent Control.Test.csproj.CopyComplete
+C:\Code\ParentControlApp\Parent Control.Test\obj\Debug\Parent Control.Test.exe
+C:\Code\ParentControlApp\Parent Control.Test\obj\Debug\Parent Control.Test.pdb

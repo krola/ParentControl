@@ -8,7 +8,7 @@ namespace ParentControl.Infrastructure.Contracts
     {
         void SaveAuthentication(AuthenticationData authenticationData);
 
-        Config Config { get; }
+        DeviceConfiguration Config { get; }
 
         void SaveServerAddress(string server);
 

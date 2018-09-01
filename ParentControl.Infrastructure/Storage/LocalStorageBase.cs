@@ -10,7 +10,7 @@ namespace ParentControl.Infrastructure.Storage
         private string _fullPath;
         private string _fileName;
 
-        private const string _folderName = ".pc";
+        private const string _folderName = ".parentcontrol";
 
         public LocalStorageBase(string fileName)
         {
@@ -52,7 +52,7 @@ namespace ParentControl.Infrastructure.Storage
             _fullPath = specificFolder;
         }
 
-        protected void UpdateStore()
+        protected void SaveStore()
         {
             var json = JsonConvert.SerializeObject(_store);
             File.WriteAllText(_fullPath, json);

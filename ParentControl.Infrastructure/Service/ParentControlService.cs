@@ -12,25 +12,35 @@ namespace ParentControl.Infrastructure.Service
         {
             Bootstrap bootstrap = new Bootstrap();
             _container = bootstrap.Container;
-            Initializer();
         }
 
-        private void Initializer()
+        public bool ValidApiConfiguration()
         {
             var config = _container.Resolve<IConfiguration>();
-            var owin = _container.Resolve<IHttpService>();
-            if(string.IsNullOrEmpty(config.Login) && string.IsNullOrEmpty(config.Password))
+
+            if (string.IsNullOrEmpty(config.ApiAddress) && string.IsNullOrEmpty(config.Login) && string.IsNullOrEmpty(config.Password))
             {
-                return;
+                return false;
             }
+
+            return true;
+        }
+
+        public bool ValidateApiConnection()
+        {
+            var owin = _container.Resolve<IHttpService>();
+            var config = _container.Resolve<IConfiguration>();
+
             try
             {
                 owin.Authenticate(config.Login, config.Password);
             }
             catch(Exception ex)
             {
-
+                return false;
             }
+
+            return true;
         }
 
         public IDeviceService DeviceService => _container.Resolve<IDeviceService>();
@@ -48,5 +58,7 @@ namespace ParentControl.Infrastructure.Service
         public bool IsConnected => _container.Resolve<IHttpService>() != null && _container.Resolve<IHttpService>().IsConnected;
 
         public string InfoData => $"{_container.Resolve<IConfigService>().FullPath}{Environment.NewLine}Token:{_container.Resolve<IHttpService>().Token}";
+
+        public bool IsOfflineConfigured => ConfigService?.Config?.Timesheets != null && ConfigService?.Config?.AllowOnNoTimesheet == false;
     }
 }

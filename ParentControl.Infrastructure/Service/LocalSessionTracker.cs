@@ -27,14 +27,14 @@ namespace ParentControl.Infrastructure.Service
                 existingSession.SessionEnd = session.SessionEnd;
             }
 
-            UpdateStore();
+            SaveStore();
         }
 
         public void RemoveSession(Session session)
         {
             var foundSession = Sessions.FirstOrDefault(s => s.Id == session.Id);
             Sessions.Remove(foundSession);
-            UpdateStore();
+            SaveStore();
         }
 
         public IList<Session> Sessions { get { return Store; } }

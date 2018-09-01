@@ -9,6 +9,9 @@
         ISessionService SessionService { get; }
 
         bool IsConnected { get; }
+        bool IsOfflineConfigured { get; }
         string InfoData { get; }
+
+        bool ValidApiConfiguration();
     }
 }

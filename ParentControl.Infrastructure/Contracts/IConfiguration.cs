@@ -5,6 +5,5 @@
         string ApiAddress { get; }
         string Login { get; set; }
         string Password { get; set; }
-        bool AutoLogin { get; set; }
     }
 }
