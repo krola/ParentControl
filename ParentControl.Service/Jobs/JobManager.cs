@@ -44,7 +44,7 @@ namespace ParentControl.Service.Jobs
 
         public void Start()
         {
-            _jobs.ForEach(j => Start(j));
+            _jobs.ForEach(j => Start(j, false));
         }
 
         public void Start(string jobId)
@@ -85,6 +85,14 @@ namespace ParentControl.Service.Jobs
                 Console.Write($"{job.ID.PadRight(20)}\t\tKeepAlive:{job.KeepAlive}\t\tStatus: ");
                 switch (job.GetState())
                 {
+                    case Consts.JobState.Disabled:
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("Disabled");
+                        break;
+                    case Consts.JobState.Finished:
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine("Finished");
+                        break;
                     case Consts.JobState.Running:
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Running");
@@ -120,6 +128,14 @@ namespace ParentControl.Service.Jobs
                 return;
             }
 
+            if (job.GetState() == Consts.JobState.Disabled)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Job is disabled.");
+                Console.ForegroundColor = ConsoleColor.White;
+                return;
+            }
+
             job.Stop();
 
             if (job.KeepAlive && _keepAliveJobs.Contains(job))
@@ -128,13 +144,23 @@ namespace ParentControl.Service.Jobs
             }
         }
 
-        private void Start(IJob job)
+        private void Start(IJob job, bool showMessages = true)
         {
             if(job.GetState() == Consts.JobState.Running)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Job is already running.");
-                Console.ForegroundColor = ConsoleColor.White;
+                if (showMessages)
+                {
+                    PrintMessage("Job is already running.", ConsoleColor.Yellow);
+                }
+                return;
+            }
+
+            if (job.GetState() == Consts.JobState.Disabled)
+            {
+                if (showMessages)
+                {
+                    PrintMessage("Job is disabled.", ConsoleColor.Yellow);
+                }
                 return;
             }
 
@@ -144,6 +170,13 @@ namespace ParentControl.Service.Jobs
             {
                 _keepAliveJobs.Add(job);
             }
+        }
+
+        private void PrintMessage(string message, ConsoleColor color)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(message);
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         private void StartKeepAlive()

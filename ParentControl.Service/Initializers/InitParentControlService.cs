@@ -1,22 +1,21 @@
 ﻿using ParentControl.Infrastructure.Service;
-using ParentControl.Service.Contracts;
 
 namespace ParentControl.Service.Initializers
 {
-    class InitializeAppContext : BaseInitializer
+    class InitParentControlService : BaseInitializer
     {
-        public InitializeAppContext(BaseInitializer nextProcess) : base(nextProcess)
+        public InitParentControlService(BaseInitializer nextProcess) : base(nextProcess)
         {
         }
 
-        protected override string ProcessName => "InitializeAppContext";
+        protected override string ProcessName => "InitParentControlService";
 
         protected override bool CanSkip => false;
 
         protected override void Do()
         {
+            Context.Initialized = true;
             Context.ParentControlService = new ParentControlService();
-            Context.JobManager = new Jobs.JobManager();
         }
     }
 }

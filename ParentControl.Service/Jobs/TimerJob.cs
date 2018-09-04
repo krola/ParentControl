@@ -41,7 +41,7 @@ namespace ParentControl.Service.Jobs
             });
 
             _timer.GetAwaiter().OnCompleted(() => {
-                _state = JobState.Stopped;
+                _state = Context.TimeLeft == TimeSpan.Zero ? JobState.Finished : JobState.Stopped;
             });
 
             _state = JobState.Running;

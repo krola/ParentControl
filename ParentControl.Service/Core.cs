@@ -26,7 +26,10 @@ namespace ParentControl.Service
             try
             {
                 _initializers.Run();
-                App.Context.JobManager.Start();
+                if (App.Context.Initialized)
+                {
+                    App.Context.JobManager.Start();
+                }
             }
             catch(Exception ex)
             {

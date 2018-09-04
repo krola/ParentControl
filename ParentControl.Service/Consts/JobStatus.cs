@@ -9,6 +9,8 @@ namespace ParentControl.Service.Consts
     enum JobState
     {
         Stopped,
-        Running
+        Running,
+        Finished,
+        Disabled
     }
 }

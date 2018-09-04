@@ -5,6 +5,7 @@ C:\Code\ParentControlApp\ParentControl.Service\bin\Debug\NamedPipeWrapper.dll
 C:\Code\ParentControlApp\ParentControl.Service\bin\Debug\Newtonsoft.Json.dll
 C:\Code\ParentControlApp\ParentControl.Service\bin\Debug\ParentControl.DTO.dll
 C:\Code\ParentControlApp\ParentControl.Service\bin\Debug\ParentControl.Infrastructure.dll
+C:\Code\ParentControlApp\ParentControl.Service\bin\Debug\websocket-sharp.dll
 C:\Code\ParentControlApp\ParentControl.Service\bin\Debug\Castle.Windsor.dll
 C:\Code\ParentControlApp\ParentControl.Service\bin\Debug\RestSharp.dll
 C:\Code\ParentControlApp\ParentControl.Service\bin\Debug\Castle.Core.dll
@@ -13,6 +14,7 @@ C:\Code\ParentControlApp\ParentControl.Service\bin\Debug\ParentControl.Infrastru
 C:\Code\ParentControlApp\ParentControl.Service\bin\Debug\ParentControl.Infrastructure.dll.config
 C:\Code\ParentControlApp\ParentControl.Service\bin\Debug\NamedPipeWrapper.pdb
 C:\Code\ParentControlApp\ParentControl.Service\bin\Debug\Newtonsoft.Json.xml
+C:\Code\ParentControlApp\ParentControl.Service\bin\Debug\websocket-sharp.xml
 C:\Code\ParentControlApp\ParentControl.Service\bin\Debug\Castle.Windsor.xml
 C:\Code\ParentControlApp\ParentControl.Service\bin\Debug\RestSharp.xml
 C:\Code\ParentControlApp\ParentControl.Service\bin\Debug\Castle.Core.xml

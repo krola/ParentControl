@@ -72,7 +72,7 @@ namespace ParentControl.Service
                 case CtrlTypes.CTRL_LOGOFF_EVENT:
                 case CtrlTypes.CTRL_SHUTDOWN_EVENT:
                     commandExecuter.Execute("CLOSE SESSION");
-                    break;
+                        break;
 
             }
             return true;

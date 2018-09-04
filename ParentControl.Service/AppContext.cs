@@ -2,6 +2,7 @@
 using ParentControl.Infrastructure.Service;
 using ParentControl.Service.Constants;
 using ParentControl.Service.Jobs;
+using ParentControl.Service.Manager;
 using System;
 using System.Collections.Generic;
 
@@ -17,8 +18,10 @@ namespace ParentControl.Service
         }
 
         public Mode Mode { get; set; }
+        public bool Initialized { get; set; }
         public ParentControlService ParentControlService;
         public JobManager JobManager;
+        public WebsocketHandler WebsocketHandler;
         public Schedule Schedule;
         public Device Device;
         public List<Session> TodaySessions;

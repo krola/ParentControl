@@ -22,13 +22,14 @@ namespace ParentControl.Service.Initializers
         protected abstract string ProcessName { get; }
         protected abstract bool CanSkip { get; }
 
-        private string ValidationFailMessage = "Validation failed!";
+        private string ValidationFailMessage = "Initialization failed!";
 
         public void Run()
         {
             if (!Valid() && !CanSkip)
             {
                 PrintMessage(ValidationFailMessage, ConsoleColor.Red);
+                Context.Initialized = false;
                 return;
             }
 

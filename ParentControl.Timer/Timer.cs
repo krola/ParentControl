@@ -23,6 +23,7 @@ namespace ParentControl.Timer
         public Timer()
         {
             InitializeComponent();
+            ShowInTaskbar = false;
             _namedPipeClient = new NamedPipeClientStream(".","TimerPipe", PipeDirection.InOut);
            
             Task.Factory.StartNew(() =>

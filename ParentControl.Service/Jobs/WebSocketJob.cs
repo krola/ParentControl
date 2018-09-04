@@ -1,5 +1,5 @@
-﻿using System;
-using ParentControl.Service.Consts;
+﻿using ParentControl.Service.Consts;
+using ParentControl.Service.Manager;
 
 namespace ParentControl.Service.Jobs
 {
@@ -10,6 +10,20 @@ namespace ParentControl.Service.Jobs
 
         public WebSocketJob()
         {
+            if(Context.Mode == Constants.Mode.Offline)
+            {
+                _state = JobState.Disabled;
+            }
+        }
+
+        private void _websocketManager_Stopped()
+        {
+            _state = JobState.Stopped;
+        }
+
+        private void _websocketManager_Running()
+        {
+            _state = JobState.Running;
         }
 
         public string ID => "websocket";
@@ -23,12 +37,15 @@ namespace ParentControl.Service.Jobs
 
         public void Start()
         {
-            _state = JobState.Running;
+            Context.WebsocketHandler.OnConnected += _websocketManager_Running;
+            Context.WebsocketHandler.OnError += _websocketManager_Stopped;
+            Context.WebsocketHandler.OnDisconnected += _websocketManager_Stopped;
+            Context.WebsocketHandler.Connect();
         }
 
         public void Stop()
         {
-            _state = JobState.Stopped;
+            Context.WebsocketHandler.Disconnect();
         }
     }
 }
