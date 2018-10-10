@@ -7,7 +7,8 @@ namespace ParentControl.Service.Jobs
 {
     class WebSocketJob : BaseJob 
     {
-        private App Context = App.Context;
+        public override string ID => "websocket";
+        public override bool KeepAlive => true;
 
         public WebSocketJob()
         {
@@ -32,10 +33,6 @@ namespace ParentControl.Service.Jobs
         {
             ChangeState(JobState.Running);
         }
-
-        public override string ID => "websocket";
-
-        public override bool KeepAlive => true;
 
         public override void Start()
         {
