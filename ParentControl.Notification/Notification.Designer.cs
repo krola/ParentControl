@@ -41,7 +41,7 @@
             this.panel1.Controls.Add(this.lbText);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1235, 668);
             this.panel1.TabIndex = 0;
@@ -51,7 +51,7 @@
             this.btnOK.BackColor = System.Drawing.Color.White;
             this.btnOK.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnOK.Location = new System.Drawing.Point(571, 592);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(212, 62);
             this.btnOK.TabIndex = 1;
@@ -69,10 +69,12 @@
             this.lbText.ForeColor = System.Drawing.Color.White;
             this.lbText.Location = new System.Drawing.Point(575, 302);
             this.lbText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbText.MaximumSize = new System.Drawing.Size(91, 0);
             this.lbText.Name = "lbText";
             this.lbText.Size = new System.Drawing.Size(91, 42);
             this.lbText.TabIndex = 0;
             this.lbText.Text = "Text";
+            this.lbText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Notification
             // 
@@ -81,7 +83,7 @@
             this.ClientSize = new System.Drawing.Size(1235, 668);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Notification";
             this.Text = "Notification";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Notification_FormClosing);

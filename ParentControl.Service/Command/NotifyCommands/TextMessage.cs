@@ -38,7 +38,7 @@ namespace ParentControl.Service.Command.NotifyCommands
                         namedPipeClient.ReadMode = PipeTransmissionMode.Message;
                     }
 
-                    var data = JsonConvert.SerializeObject(new NotificationPipeModel() { NotificationType = Infrastructure.Constants.NotificationAnwser.Ok, Text = args[0] });
+                    var data = JsonConvert.SerializeObject(new NotificationPipeModel() { NotificationType = Infrastructure.Constants.NotificationAnwser.Ok, Text = string.Join(" ", args) });
                     byte[] dataBytes = Encoding.UTF8.GetBytes(data);
                     namedPipeClient.Write(dataBytes, 0, dataBytes.Length);
                     namedPipeClient.Flush();

@@ -22,11 +22,17 @@ namespace ParentControl.Service.Jobs
                 var response = JsonConvert.SerializeObject(new ServerResposePocket() { Command = handler.Command, Origin = string.Empty, Payload = handler.Handle(null) });
                 Context.WebsocketHandler.Send(response);
             };
+
+            OnJobStopped += () => {
+                var handler = new StatusHandler();
+                var response = JsonConvert.SerializeObject(new ServerResposePocket() { Command = handler.Command, Origin = string.Empty, Payload = JsonConvert.SerializeObject(new { Status = 0 }) });
+                Context.WebsocketHandler.Send(response);
+            };
         }
 
         private void _websocketManager_Stopped()
         {
-            ChangeState(JobState.Stopped);
+            ChangeState(JobState.Stopped, false);
         }
 
         private void _websocketManager_Running()
@@ -44,6 +50,7 @@ namespace ParentControl.Service.Jobs
 
         public override void Stop()
         {
+            RaiseOnJobStopped();
             Context.WebsocketHandler.Disconnect();
         }
     }

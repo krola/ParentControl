@@ -4,6 +4,7 @@ using ParentControl.Service.Consts;
 namespace ParentControl.Service.Jobs
 {
     public delegate void OnJobStarted();
+    public delegate void OnJobStopped();
 
     abstract class BaseJob : IJob
     {
@@ -13,6 +14,7 @@ namespace ParentControl.Service.Jobs
         public abstract bool KeepAlive { get; }
 
         public event OnJobStarted OnJobStarted;
+        public event OnJobStopped OnJobStopped;
 
         protected App Context = App.Context;
 
@@ -21,13 +23,29 @@ namespace ParentControl.Service.Jobs
             return _state;
         }
 
-        protected void ChangeState(JobState newState)
+        protected void ChangeState(JobState newState, bool propageteEvents = true)
         {
             _state = newState;
-            if (_state == JobState.Running && OnJobStarted != null)
+
+            if (!propageteEvents)
             {
-                OnJobStarted();
+                return;
             }
+
+            if (_state == JobState.Running)
+            {
+                OnJobStarted?.Invoke();
+            }
+
+            if (_state == JobState.Stopped)
+            {
+                RaiseOnJobStopped();
+            }
+        }
+
+        protected void RaiseOnJobStopped()
+        {
+            OnJobStopped?.Invoke();
         }
 
         public abstract void Start();

@@ -8,7 +8,6 @@ namespace ParentControl.Service.Jobs
     class TimerJob : BaseJob
     {
         private Task _timer;
-
         private bool stopFlag;
 
         public TimerJob()

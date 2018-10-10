@@ -10,8 +10,6 @@ namespace ParentControl.Service.Command
 {
     class CloseCommand : BaseCommand
     {
-        private List<ICommand> _subcommands;
-
         public CloseCommand()
         {
             _subcommands = new List<ICommand>()

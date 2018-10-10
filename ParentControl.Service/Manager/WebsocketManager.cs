@@ -43,20 +43,20 @@ namespace ParentControl.Service.Manager
             _webSocket = new WebSocket($"ws://{host}/sync?deviceid={Context.Device.Id}&type=1");
             _webSocket.OnOpen += (sender, e) => {
                 Console.WriteLine("Websocket connection estalished.");
-                OnConnected();
+                OnConnected?.Invoke();
             };
             _webSocket.OnMessage += (sender, e) => {
                 _websocketRequestHandler.Handle(e.Data);
             };
             _webSocket.OnClose += (sender, e) => {
                 Console.WriteLine("Websocket connection closed.");
-                OnDisconnected();
+                OnDisconnected?.Invoke();
             };
             _webSocket.OnError += (sender, e) => {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"websocket: {e.Message}");
                 Console.ForegroundColor = ConsoleColor.White;
-                OnError();
+                OnError?.Invoke();
             };
         }
 
