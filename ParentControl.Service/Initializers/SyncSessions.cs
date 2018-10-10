@@ -15,7 +15,7 @@ namespace ParentControl.Service.Initializers
 
         protected override string ProcessName => "SyncSessions";
 
-        protected override bool CanSkip => false;
+        protected override bool CanSkip => true;
 
         protected override void Do()
         {

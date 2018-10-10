@@ -1,41 +1,43 @@
-﻿using ParentControl.Service.Consts;
-using ParentControl.Service.Manager;
+﻿using Newtonsoft.Json;
+using ParentControl.Service.Communication.Websocket;
+using ParentControl.Service.Communication.Websocket.RequestHandler;
+using ParentControl.Service.Consts;
 
 namespace ParentControl.Service.Jobs
 {
-    class WebSocketJob : IJob
+    class WebSocketJob : BaseJob 
     {
-        private JobState _state = JobState.Stopped;
         private App Context = App.Context;
 
         public WebSocketJob()
         {
             if(Context.Mode == Constants.Mode.Offline)
             {
-                _state = JobState.Disabled;
+                ChangeState(JobState.Disabled);
             }
+
+            OnJobStarted += () => {
+                var handler = new StatusHandler();
+                var response = JsonConvert.SerializeObject(new ServerResposePocket() { Command = handler.Command, Origin = string.Empty, Payload = handler.Handle(null) });
+                Context.WebsocketHandler.Send(response);
+            };
         }
 
         private void _websocketManager_Stopped()
         {
-            _state = JobState.Stopped;
+            ChangeState(JobState.Stopped);
         }
 
         private void _websocketManager_Running()
         {
-            _state = JobState.Running;
+            ChangeState(JobState.Running);
         }
 
-        public string ID => "websocket";
+        public override string ID => "websocket";
 
-        public bool KeepAlive => true;
+        public override bool KeepAlive => true;
 
-        public JobState GetState()
-        {
-            return _state;
-        }
-
-        public void Start()
+        public override void Start()
         {
             Context.WebsocketHandler.OnConnected += _websocketManager_Running;
             Context.WebsocketHandler.OnError += _websocketManager_Stopped;
@@ -43,7 +45,7 @@ namespace ParentControl.Service.Jobs
             Context.WebsocketHandler.Connect();
         }
 
-        public void Stop()
+        public override void Stop()
         {
             Context.WebsocketHandler.Disconnect();
         }

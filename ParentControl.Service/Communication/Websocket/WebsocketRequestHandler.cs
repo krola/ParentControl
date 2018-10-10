@@ -44,7 +44,9 @@ namespace ParentControl.Service.Communication.Websocket
                 return;
             }
 
-            var serialized = JsonConvert.SerializeObject(new ServerResposePocket() { Command = request.Command, Origin = request.Origin, Payload = handler.Handle() });
+            Console.WriteLine($"WebsocketRequestHandler: Recieved command {request.Command}");
+
+            var serialized = JsonConvert.SerializeObject(new ServerResposePocket() { Command = request.Command, Origin = request.Origin, Payload = handler.Handle(request.Payload) });
             Context.WebsocketHandler.Send(serialized);
         }
     }

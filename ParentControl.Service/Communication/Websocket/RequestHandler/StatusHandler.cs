@@ -9,17 +9,17 @@ namespace ParentControl.Service.Communication.Websocket.RequestHandler
     {
         public string Command => "STATUS";
 
-        public string Handle()
+        public string Handle(string payload)
         {
-            var sessionTime = DateTime.Now.Subtract(App.Context.ActiveSession.SessionStart).TotalSeconds;
-            var payload = new
+            var sessionTime = DateTime.UtcNow.Subtract(App.Context.ActiveSession.SessionStart).TotalSeconds;
+            var resultPayload = new
             {
                 TimeSpendOnSessionInSeconds = sessionTime,
                 TimeSpendTodayInSeconds = App.Context.TodaySessions.Where(s => s.SessionEnd != null).Sum(s => s.SessionEnd.Value.Subtract(s.SessionStart).TotalSeconds) + sessionTime,
                 TimeLeftInSeconds = App.Context.TimeLeft.TotalSeconds
             };
 
-            return JsonConvert.SerializeObject(payload);
+            return JsonConvert.SerializeObject(resultPayload);
         }
     }
 }

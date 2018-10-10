@@ -9,12 +9,6 @@ namespace ParentControl.Service
 {
     class Program
     {
-        [DllImport("kernel32.dll")]
-        static extern IntPtr GetConsoleWindow();
-
-        [DllImport("user32.dll")]
-        static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
-
         [DllImport("Kernel32")]
         public static extern bool SetConsoleCtrlHandler(HandlerRoutine Handler, bool Add);
 
@@ -28,9 +22,6 @@ namespace ParentControl.Service
             CTRL_LOGOFF_EVENT = 5,
             CTRL_SHUTDOWN_EVENT
         }
-
-        const int SW_HIDE = 0;
-        const int SW_SHOW = 5;
 
         const string EXIT_COMMAND = "EXIT";
 
@@ -48,7 +39,7 @@ namespace ParentControl.Service
             core.Run();
 
             var command = string.Empty;
-            while(!command.Equals(EXIT_COMMAND, StringComparison.InvariantCultureIgnoreCase))
+            while(!command.Equals(EXIT_COMMAND, StringComparison.InvariantCultureIgnoreCase) && command != null)
             {
                 Console.Write("> ");
                 command = Console.ReadLine();
@@ -56,10 +47,6 @@ namespace ParentControl.Service
             }
 
             commandExecuter.Execute("CLOSE SESSION");
-            //var handle = GetConsoleWindow();
-
-            // Hide
-            //ShowWindow(handle, SW_HIDE);
         }
 
         private static bool ConsoleCtrlCheck(CtrlTypes ctrlType)

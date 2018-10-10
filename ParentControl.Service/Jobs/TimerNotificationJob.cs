@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.IO.Pipes;
-using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,23 +10,16 @@ using ParentControl.Service.Consts;
 
 namespace ParentControl.Service.Jobs
 {
-    class TimerNotificationJob : IJob
+    class TimerNotificationJob : BaseJob
     {
-        private JobState _state = JobState.Stopped;
-        private App Context = App.Context;
         private Task _timer;
         private bool stopFlag;
 
-        public string ID => "timer-notification";
+        public override string ID => "timer-notification";
 
-        public bool KeepAlive => true;
+        public override bool KeepAlive => true;
 
-        public JobState GetState()
-        {
-            return _state;
-        }
-
-        public void Start()
+        public override void Start()
         {
             stopFlag = false;
             _timer = Task.Factory.StartNew(() =>
@@ -64,13 +55,13 @@ namespace ParentControl.Service.Jobs
             });
 
             _timer.GetAwaiter().OnCompleted(() => {
-                _state = JobState.Stopped;
+                ChangeState(JobState.Stopped);
             });
 
-            _state = JobState.Running;
+            ChangeState(JobState.Running);
         }
 
-        public void Stop()
+        public override void Stop()
         {
             stopFlag = true;
         }

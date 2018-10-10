@@ -1,19 +1,13 @@
 ﻿using ParentControl.Service.Consts;
 using ParentControl.Service.Exceptions;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ParentControl.Service.Jobs
 {
-    class NotificationDashboardJob : IJob
+    class NotificationDashboardJob : BaseJob
     {
-        private JobState _state = JobState.Stopped;
-        private App Context = App.Context;
         private Task<int> _dashboard;
         private Process _process;
 
@@ -21,16 +15,10 @@ namespace ParentControl.Service.Jobs
         {
         }
 
-        public string ID => "notification-dashboard";
+        public override string ID => "notification-dashboard";
+        public override bool KeepAlive => true;
 
-        public bool KeepAlive => true;
-
-        public JobState GetState()
-        {
-            return _state;
-        }
-
-        public void Start()
+        public override void Start()
         {
             var applicationPath = System.Configuration.ConfigurationSettings.AppSettings["Application.Notification.Path"];
 
@@ -47,13 +35,13 @@ namespace ParentControl.Service.Jobs
             _dashboard = RunProcessAsync(applicationPath);
             _dashboard.GetAwaiter().OnCompleted(() =>
             {
-                _state = JobState.Stopped;
+                ChangeState(JobState.Stopped);
             });
 
-            _state = JobState.Running;
+            ChangeState(JobState.Running);
         }
 
-        public void Stop()
+        public override void Stop()
         {
             _process.CloseMainWindow();
         }

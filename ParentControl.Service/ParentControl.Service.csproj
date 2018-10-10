@@ -66,6 +66,7 @@
     <Compile Include="Command\NotifyCommands\CloseAction.cs" />
     <Compile Include="Command\NotifyCommands\TextMessage.cs" />
     <Compile Include="Command\ShowCommand.cs" />
+    <Compile Include="Communication\Websocket\RequestHandler\MessageHandler.cs" />
     <Compile Include="Contracts\IWebsocketRequestHandler.cs" />
     <Compile Include="Contracts\IWebsocketRequestSolver.cs" />
     <Compile Include="Exceptions\MissingConfiguration.cs" />
@@ -89,9 +90,11 @@
     <Compile Include="Initializers\LoadTimesheet.cs" />
     <Compile Include="Initializers\StartSession.cs" />
     <Compile Include="Initializers\SyncSessions.cs" />
+    <Compile Include="Jobs\BaseJob.cs" />
     <Compile Include="Jobs\IJob.cs" />
     <Compile Include="Jobs\JobManager.cs" />
     <Compile Include="Jobs\NotificationDashboardJob.cs" />
+    <Compile Include="Jobs\SessionGuard.cs" />
     <Compile Include="Jobs\TimeDashboardJob.cs" />
     <Compile Include="Jobs\TimerJob.cs" />
     <Compile Include="Jobs\TimerNotificationJob.cs" />
@@ -100,6 +103,7 @@
     <Compile Include="Initializers\LoadDevice.cs" />
     <Compile Include="Initializers\LoadSchedule.cs" />
     <Compile Include="Initializers\ResolveApplicationMode.cs" />
+    <Compile Include="Manager\HotKeyManager.cs" />
     <Compile Include="Manager\WebsocketManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

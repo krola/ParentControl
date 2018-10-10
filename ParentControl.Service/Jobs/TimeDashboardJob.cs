@@ -10,10 +10,8 @@ using ParentControl.Service.Exceptions;
 
 namespace ParentControl.Service.Jobs
 {
-    class TimeDashboardJob : IJob
+    class TimeDashboardJob : BaseJob
     {
-        private JobState _state = JobState.Stopped;
-        private App Context = App.Context;
         private Task<int> _dashboard;
         private Process _process;
 
@@ -21,16 +19,10 @@ namespace ParentControl.Service.Jobs
         {
         }
 
-        public string ID => "timer-dashboard";
+        public override string ID => "timer-dashboard";
+        public override bool KeepAlive => true;
 
-        public bool KeepAlive => true;
-
-        public JobState GetState()
-        {
-            return _state;
-        }
-
-        public void Start()
+        public override void Start()
         {
             var applicationPath = System.Configuration.ConfigurationSettings.AppSettings["Application.Timer.Path"];
 
@@ -47,13 +39,13 @@ namespace ParentControl.Service.Jobs
             _dashboard = RunProcessAsync(applicationPath);
             _dashboard.GetAwaiter().OnCompleted(() =>
             {
-                _state = JobState.Stopped;
+                ChangeState(JobState.Stopped);
             });
 
-            _state = JobState.Running;
+            ChangeState(JobState.Running);
         }
 
-        public void Stop()
+        public override void Stop()
         {
             _process.CloseMainWindow();
         }

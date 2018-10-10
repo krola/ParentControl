@@ -9,6 +9,6 @@ namespace ParentControl.Service.Contracts
     interface IWebsocketRequestSolver
     {
         string Command { get; }
-        string Handle();
+        string Handle(string payload);
     }
 }

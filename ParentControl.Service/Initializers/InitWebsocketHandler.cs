@@ -10,12 +10,22 @@ namespace ParentControl.Service.Initializers
 
         protected override string ProcessName => "InitWebsocketHandler";
 
-        protected override bool CanSkip => false;
+        protected override bool CanSkip => true;
 
         protected override void Do()
         {
             Context.WebsocketHandler = new WebsocketHandler();
             Context.WebsocketHandler.Initialize();
+        }
+
+        protected override bool Valid()
+        {
+            if(Context.Mode == Constants.Mode.Offline)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
