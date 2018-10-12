@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace ParentControl.Infrastructure.Constants
 {
-    public enum NotificationAnwser
+    public enum NotificationType
     {
         Ok,
+        Lock,
+        Unlock,
         Shutdown
     }
 }

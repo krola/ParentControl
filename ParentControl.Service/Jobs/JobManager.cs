@@ -140,6 +140,7 @@ namespace ParentControl.Service.Jobs
 
             if (job.KeepAlive && _keepAliveJobs.Contains(job))
             {
+                //keep alive me be accessing the same time
                 _keepAliveJobs.Remove(job);
             }
         }

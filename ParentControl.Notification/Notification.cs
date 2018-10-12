@@ -20,7 +20,7 @@ namespace ParentControl.Notification
         private const UInt32 SWP_NOMOVE = 0x0002;
         private const UInt32 TOPMOST_FLAGS = SWP_NOMOVE | SWP_NOSIZE;
         private bool _userClicked;
-        private NotificationAnwser _anwser;
+        private NotificationType _type;
         private Task _task;
         private NamedPipeServerStream _server;
 
@@ -32,9 +32,7 @@ namespace ParentControl.Notification
         {
             InitializeComponent();
             StartListing();
-            ShowInTaskbar = false;
-            Hide();
-            Opacity = 0;
+            HideWindow();
         }
 
         protected override CreateParams CreateParams
@@ -47,7 +45,7 @@ namespace ParentControl.Notification
             }
         }
 
-        public void Notify(string message, NotificationAnwser anwser)
+        public void Notify(string message, NotificationType anwser)
         {
             if (this.InvokeRequired)
             {
@@ -56,39 +54,36 @@ namespace ParentControl.Notification
                 });
                 return;
             }
-            this.WindowState = FormWindowState.Normal;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Bounds = Screen.PrimaryScreen.Bounds;
-            _anwser = anwser;
-            lbText.Text = message;
 
-            var pointX = (this.Bounds.Width / 2) - (lbText.Width / 2);
-            var pointY = (this.Bounds.Height / 2) - (lbText.Height / 2);
+            _type = anwser;
+           
+            if(_type == NotificationType.Unlock)
+            {
+                HideWindow();
+            }
+            else
+            {
+                ShowWindow();
+            }
 
-            lbText.Location = new Point(pointX,pointY);
-
-            pointX = (this.Bounds.Width / 2) - (btnOK.Width / 2);
-            pointY = (this.Bounds.Height - btnOK.Height) - 10;
-            btnOK.Location = new Point(pointX, pointY);
-            btnOK.Text = anwser == NotificationAnwser.Ok ? "Ok" : "Wyłącz komputer";
-            TopMost = true;
-            TopLevel = true;
-            Opacity = 100;
+            ShowMessage(message);
+            ShowButton();
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            switch (_anwser)
+            switch (_type)
             {
-                    case NotificationAnwser.Ok:
+                    case NotificationType.Ok:
                         _userClicked = true;
-                        Opacity = 0;
+                       
                     break;
-                    case NotificationAnwser.Shutdown:
-                        System.Diagnostics.Process.Start("shutdown", "/s /t 0");
+                    case NotificationType.Shutdown:
+                        System.Diagnostics.Process.Start("shutdown", "/s /t 60");
+
                     break;
             }
-            
+            HideWindow();
         }
 
         private void Notification_FormClosing(object sender, FormClosingEventArgs e)
@@ -109,9 +104,53 @@ namespace ParentControl.Notification
             }
         }
 
+        private void ShowButton()
+        {
+            if(_type == NotificationType.Lock)
+            {
+                btnOK.Visible = false;
+                return;
+            }
+
+            var pointX = (this.Bounds.Width / 2) - (btnOK.Width / 2);
+            var pointY = (this.Bounds.Height - btnOK.Height) - 10;
+            btnOK.Visible = true;
+            btnOK.Location = new Point(pointX, pointY);
+            btnOK.Text = _type == NotificationType.Ok ? "Ok" : "Wyłącz komputer";
+        }
+
+        private void ShowMessage(string message)
+        {
+            lbText.Text = message;
+
+            var pointX = (this.Bounds.Width / 2) - (lbText.Width / 2);
+            var pointY = (this.Bounds.Height / 2) - (lbText.Height / 2);
+
+            lbText.Location = new Point(pointX, pointY);
+        }
+
+        private void ShowWindow()
+        {
+            Show();
+            Opacity = 100;
+            Visible = true;
+        }
+
+        private void HideWindow()
+        {
+            Hide();
+            Opacity = 0;
+        }
+
         private void Notification_Load(object sender, EventArgs e)
         {
-            SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
+           SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
+            this.WindowState = FormWindowState.Normal;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Bounds = Screen.PrimaryScreen.Bounds;
+            TopMost = true;
+            TopLevel = true;
+            ShowInTaskbar = false;
         }
 
         private void StartListing()

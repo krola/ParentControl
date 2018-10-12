@@ -24,8 +24,7 @@ namespace ParentControl.Timer
         {
             InitializeComponent();
             ShowInTaskbar = false;
-            _namedPipeClient = new NamedPipeClientStream(".","TimerPipe", PipeDirection.InOut);
-           
+            _namedPipeClient = new NamedPipeClientStream(".", "TimerPipe", PipeDirection.InOut);
             Task.Factory.StartNew(() =>
             {
                 while (true)
@@ -54,7 +53,6 @@ namespace ParentControl.Timer
                         Thread.Sleep(1000);
                     } catch (Exception ex)
                     {
-                        _namedPipeClient.Close();
                         Thread.Sleep(5000);
                     }
                     

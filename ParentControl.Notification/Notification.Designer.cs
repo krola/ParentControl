@@ -69,7 +69,7 @@
             this.lbText.ForeColor = System.Drawing.Color.White;
             this.lbText.Location = new System.Drawing.Point(575, 302);
             this.lbText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbText.MaximumSize = new System.Drawing.Size(91, 0);
+            this.lbText.MaximumSize = new System.Drawing.Size(0, 91);
             this.lbText.Name = "lbText";
             this.lbText.Size = new System.Drawing.Size(91, 42);
             this.lbText.TabIndex = 0;

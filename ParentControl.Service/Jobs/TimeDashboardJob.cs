@@ -12,11 +12,14 @@ namespace ParentControl.Service.Jobs
 {
     class TimeDashboardJob : BaseJob
     {
+        private const string ApplicationPathConfigKey = "Application.Timer.Path";
+        private const string AppName = "ParentControl.Timer";
         private Task<int> _dashboard;
         private Process _process;
 
         public TimeDashboardJob()
         {
+        
         }
 
         public override string ID => "timer-dashboard";
@@ -24,30 +27,55 @@ namespace ParentControl.Service.Jobs
 
         public override void Start()
         {
-            var applicationPath = System.Configuration.ConfigurationSettings.AppSettings["Application.Timer.Path"];
+            var applicationPath = System.Configuration.ConfigurationSettings.AppSettings[ApplicationPathConfigKey];
+            ValidateApplication(applicationPath);
 
-            if (string.IsNullOrEmpty(applicationPath))
+            Process[] pnames = Process.GetProcessesByName(AppName);
+            CheckProcesses(pnames);
+
+            if (pnames.Any())
             {
-                throw new JobStartException("Timer application path is not configured.");
+                _process = pnames.First();
+                Task.Run(() => _process.WaitForExit()).ContinueWith(t => ChangeState(JobState.Stopped));
             }
-
-            if (!File.Exists(applicationPath) && !FileVersionInfo.GetVersionInfo(applicationPath).ProductName.Equals("ParentControl.Timer"))
+            else
             {
-                throw new JobStartException("Wrong timer application");
+                _dashboard = RunProcessAsync(applicationPath);
+                _dashboard.GetAwaiter().OnCompleted(() =>
+                {
+                    ChangeState(JobState.Stopped);
+                });
             }
-
-            _dashboard = RunProcessAsync(applicationPath);
-            _dashboard.GetAwaiter().OnCompleted(() =>
-            {
-                ChangeState(JobState.Stopped);
-            });
 
             ChangeState(JobState.Running);
         }
 
         public override void Stop()
         {
-            _process.CloseMainWindow();
+            _process.Kill();
+        }
+
+        private void CheckProcesses(Process[] pnames)
+        {
+            if (pnames.Length > 1)
+            {
+                System.Console.ForegroundColor = System.ConsoleColor.Yellow;
+                System.Console.WriteLine($"NotificationDashboardJob: There are {pnames.Length} processes running. Please clean up.");
+                System.Console.ForegroundColor = System.ConsoleColor.White;
+            }
+        }
+
+        private void ValidateApplication(string applicationPath)
+        {
+            if (string.IsNullOrEmpty(applicationPath))
+            {
+                throw new JobStartException("Timer application path is not configured.");
+            }
+
+            if (!File.Exists(applicationPath) && !FileVersionInfo.GetVersionInfo(applicationPath).ProductName.Equals(AppName))
+            {
+                throw new JobStartException("Wrong timer application");
+            }
         }
 
         private Task<int> RunProcessAsync(string fileName)

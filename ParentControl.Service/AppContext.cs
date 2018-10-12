@@ -19,6 +19,7 @@ namespace ParentControl.Service
 
         public Mode Mode { get; set; }
         public bool Initialized { get; set; }
+        public bool Locked { get; set; }
         public ParentControlService ParentControlService;
         public JobManager JobManager;
         public WebsocketHandler WebsocketHandler;

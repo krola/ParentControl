@@ -15,6 +15,7 @@ namespace ParentControl.Service.Communication.Websocket.RequestHandler
             var resultPayload = new
             {
                 Status = 1,
+                App.Context.Locked,
                 TimeSpendOnSessionInSeconds = sessionTime,
                 TimeSpendTodayInSeconds = App.Context.TodaySessions.Where(s => s.SessionEnd != null).Sum(s => s.SessionEnd.Value.Subtract(s.SessionStart).TotalSeconds) + sessionTime,
                 TimeLeftInSeconds = App.Context.TimeLeft.TotalSeconds
