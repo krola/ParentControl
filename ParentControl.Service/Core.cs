@@ -17,9 +17,11 @@ namespace ParentControl.Service
 
         const int SW_HIDE = 0;
         const int SW_SHOW = 5;
+        private const string HideWindowAppSettingKey = "Core.HideWindow";
 
         private BaseInitializer _initializers;
         private static int _windowsStatus;
+        private IntPtr _windowHandler;
 
         public Core()
         {
@@ -29,6 +31,8 @@ namespace ParentControl.Service
         public void Init()
         {
             _initializers = InitializersFactory.CreateProcessPipline();
+            _windowHandler = GetConsoleWindow();
+            SetupWindow();
         }
 
         public void Run()
@@ -55,9 +59,18 @@ namespace ParentControl.Service
             HotKeyManager.HotKeyPressed += new EventHandler<HotKeyEventArgs>(HotKeyManager_HotKeyPressed);
         }
 
-        private static void HotKeyManager_HotKeyPressed(object sender, HotKeyEventArgs e)
+        private void SetupWindow()
         {
-            var handle = GetConsoleWindow();
+            var hideFlag = Convert.ToBoolean(System.Configuration.ConfigurationSettings.AppSettings[HideWindowAppSettingKey]);
+            if (hideFlag)
+            {
+                _windowsStatus = SW_HIDE;
+                ShowWindow(_windowHandler, _windowsStatus);
+            }
+        }
+
+        private void HotKeyManager_HotKeyPressed(object sender, HotKeyEventArgs e)
+        {
             if(_windowsStatus == SW_SHOW)
             {
                 _windowsStatus = SW_HIDE;
@@ -66,7 +79,7 @@ namespace ParentControl.Service
             {
                 _windowsStatus = SW_SHOW;
             }
-            ShowWindow(handle, _windowsStatus);
+            ShowWindow(_windowHandler, _windowsStatus);
         }
     }
 }
