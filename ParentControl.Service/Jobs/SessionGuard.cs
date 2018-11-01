@@ -20,10 +20,14 @@ namespace ParentControl.Service.Jobs
             {
                 while (stopFlag == false)
                 {
-                    if(Context.TimeLeft == TimeSpan.Zero || Context.TimeLeft < TimeSpan.Zero)
+                    if((Context.TimeLeft == TimeSpan.Zero || Context.TimeLeft < TimeSpan.Zero) && !Context.Schedule.AllowWitoutTimesheet)
                     {
+                        System.Console.ForegroundColor = System.ConsoleColor.Yellow;
+                        System.Console.WriteLine($"SessionGuard: Time ended.");
+                        System.Console.ForegroundColor = System.ConsoleColor.White;
+                        stopFlag = true;
                         var commandExecuter = new CommandExecuter();
-                        commandExecuter.Execute("notify close");
+                        //commandExecuter.Execute("notify close");
                     }
                     Thread.Sleep(1000);
                 }
@@ -40,6 +44,7 @@ namespace ParentControl.Service.Jobs
                 }
             });
 
+            stopFlag = false;
             ChangeState(JobState.Running);
         }
 

@@ -22,9 +22,13 @@ namespace ParentControl.Service.Jobs
             stopFlag = false;
             _timer = Task.Run(() =>
             {
-                while (Context.TimeLeft > TimeSpan.Zero && stopFlag == false)
+                while (Context.TimeLeft > TimeSpan.Zero && stopFlag == false && !Context.Schedule.AllowWitoutTimesheet)
                 { 
-                    Context.TimeLeft = Context.TimeLeft.Subtract(new TimeSpan(0, 0, 1));
+                    if(!Context.Locked)
+                    {
+                        Context.TimeLeft = Context.TimeLeft.Subtract(new TimeSpan(0, 0, 1));
+                    }
+                    
                     Thread.Sleep(1000);
                 }
             });

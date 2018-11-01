@@ -29,7 +29,7 @@ namespace ParentControl.Service.Communication.Pipe
                     namedPipeClient.Write(dataBytes, 0, dataBytes.Length);
                     namedPipeClient.Flush();
                     sent = namedPipeClient.IsMessageComplete;
-                    Thread.Sleep(500);
+                    Thread.Sleep(50);
                 }
                 catch (Exception ex)
                 {
@@ -37,11 +37,11 @@ namespace ParentControl.Service.Communication.Pipe
                     Console.WriteLine($"NotificationPipe: {ex.Message}");
                     Console.ForegroundColor = ConsoleColor.White;
                     namedPipeClient.Close();
-                    Thread.Sleep(5000);
+                    Thread.Sleep(500);
                 }
             }
 
-            namedPipeClient.Close();
+            //namedPipeClient.Clo();
             namedPipeClient.Dispose();
         }
     }

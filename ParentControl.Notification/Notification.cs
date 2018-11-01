@@ -144,7 +144,7 @@ namespace ParentControl.Notification
 
         private void Notification_Load(object sender, EventArgs e)
         {
-           SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
+            SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
             this.WindowState = FormWindowState.Normal;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Bounds = Screen.PrimaryScreen.Bounds;
@@ -187,10 +187,9 @@ namespace ParentControl.Notification
                     catch (IOException ex)
                     {
                         _server.Disconnect();
-                        Thread.Sleep(2000);
                     }
 
-                    Thread.Sleep(1000);
+                    Thread.Sleep(100);
                 }
             });
         }

@@ -15,7 +15,7 @@ namespace ParentControl.Service.Initializers
 
         protected override void Do()
         {
-            if(Context.Mode == Constants.Mode.Online && Context.Schedule.AllowWitoutTimesheet)
+            if (Context.Mode == Constants.Mode.Online && Context.Schedule.AllowWitoutTimesheet)
             {
                 return;
             }
@@ -29,7 +29,18 @@ namespace ParentControl.Service.Initializers
                                             .Where(t => DateTime.UtcNow > t.DateFrom && DateTime.UtcNow < t.DateTo)
                                             .OrderByDescending(t => t.CreateTime)
                                             .FirstOrDefault();
+            if (timesheet == null)
+            {
+                PrintMessage($"Timesheet not found", ConsoleColor.Yellow);
+                Context.TimeLeft = TimeSpan.Zero;
+                return;
+            }
 
+            CalculateAndSetTimeLeft(timesheet);
+        }
+
+        private void CalculateAndSetTimeLeft(DTO.Timesheet timesheet)
+        {
             PrintMessage($"Found timesheet. Total time: {timesheet.Time.ToString("h'h 'm'm 's's'")}");
             //session 
             var allTimeSpendToday = Context.TodaySessions != null ? new TimeSpan(Context.TodaySessions.Where(s => s.SessionEnd != null).Sum(s => s.SessionEnd.Value.Subtract(s.SessionStart).Ticks)) : new TimeSpan();
@@ -45,28 +56,6 @@ namespace ParentControl.Service.Initializers
             {
                 PrintMessage($"Time left for today: {Context.TimeLeft:hh\\:mm\\:ss}");
             }
-        }
-
-        protected override bool Valid()
-        {
-            var timesheet = Context.ParentControlService.ConfigService.Config.Timesheets.FirstOrDefault(t => DateTime.UtcNow > t.DateFrom && DateTime.UtcNow < t.DateTo);
-            if (timesheet != null)
-            {
-                return true;
-            }
-
-            if (Context.Mode == Constants.Mode.Online && Context.Schedule != null && Context.Schedule.AllowWitoutTimesheet)
-            {
-                return true;
-            }
-
-            if (Context.Mode == Constants.Mode.Offline && Context.ParentControlService.ConfigService.Config.AllowOnNoTimesheet)
-            {
-                return true;
-            }
-
-            PrintMessage($"No timesheet for today!");
-            return false;
         }
     }
 }

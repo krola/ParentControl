@@ -53,4 +53,3 @@ C:\Code\ParentControlApp\ParentControl.DTO\obj\Debug\ParentControl.DTO.csproj.Co
 C:\Code\ParentControlApp\ParentControl.DTO\obj\Debug\ParentControl.DTO.csproj.CopyComplete
 C:\Code\ParentControlApp\ParentControl.DTO\obj\Debug\ParentControl.DTO.dll
 C:\Code\ParentControlApp\ParentControl.DTO\obj\Debug\ParentControl.DTO.pdb
-C:\Code\ParentControlApp\ParentControl.DTO\obj\Debug\ParentControl.DTO.csprojAssemblyReference.cache

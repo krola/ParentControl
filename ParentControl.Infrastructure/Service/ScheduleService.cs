@@ -22,31 +22,6 @@ namespace ParentControl.Infrastructure.Service
             return JsonConvert.DeserializeObject<IEnumerable<Schedule>>(scheduleJson);
         }
 
-        //public void AddTimesheet(Timesheet timesheet)
-        //{
-        //    var scheduleJson = HttpService.PostRequest("/api/Timesheet/CreateTimesheet", new RequestParameter[] {
-        //        new RequestParameter()
-        //    {
-        //        Key = "DateFrom",
-        //        Value = timesheet.DateFrom.ToString(CultureInfo.InvariantCulture)
-        //    },
-        //    new RequestParameter()
-        //    {
-        //        Key = "DateTo",
-        //        Value = timesheet.DateTo?.ToString()
-        //    },
-        //    new RequestParameter()
-        //    {
-        //        Key = "Time",
-        //        Value = timesheet.Time.ToString()
-        //    },
-        //    new RequestParameter()
-        //    {
-        //        Key = "ScheduleId",
-        //        Value = timesheet.ScheduleId.ToString()
-        //    }});
-        //}
-
         public ScheduleService(IHttpService httpService) : base(httpService)
         {
         }

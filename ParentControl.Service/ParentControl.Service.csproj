@@ -62,6 +62,8 @@
     <Compile Include="Command\JobCommands\JobStart.cs" />
     <Compile Include="Command\JobCommands\JobStatus.cs" />
     <Compile Include="Command\JobCommands\JobStop.cs" />
+    <Compile Include="Command\RefreshCommand.cs" />
+    <Compile Include="Command\RefreshCommands\RefreshTime.cs" />
     <Compile Include="Command\UnlockCommand.cs" />
     <Compile Include="Command\LockCommand.cs" />
     <Compile Include="Command\NotifyCommand.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="Command\NotifyCommands\TextMessage.cs" />
     <Compile Include="Command\ShowCommand.cs" />
     <Compile Include="Communication\Pipe\NotificationPipe.cs" />
+    <Compile Include="Communication\Websocket\RequestHandler\RefreshHandler.cs" />
     <Compile Include="Communication\Websocket\RequestHandler\EndHandler.cs" />
     <Compile Include="Communication\Websocket\RequestHandler\UnlockHandler.cs" />
     <Compile Include="Communication\Websocket\RequestHandler\LockHandler.cs" />
