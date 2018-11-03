@@ -17,36 +17,37 @@ namespace ParentControl.Service.Initializers
 
         protected override string ProcessName => "StartSession";
 
-        protected override bool CanSkip => false;
+        protected override bool CanSkip => true;
 
         protected override bool Valid()
         {
+            if(Context.TimeLeft == TimeSpan.Zero || Context.TimeLeft < TimeSpan.Zero)
+            {
+                return false;
+            }
+
+            if (Context.ActiveSession != null)
+            {
+                return false;
+            }
+
             return true;
         }
 
         protected override void Do()
         {
-            Context.TodaySessions = Context.ParentControlService.LocalSessionTracker.Sessions?.Where(
-                s => s.SessionStart.Date == DateTime.UtcNow.Date).ToList();
-            if (Context.TodaySessions == null || Context.TodaySessions.All(s => s.SessionEnd != null))
+            if (Context.Mode == Mode.Offline)
             {
-                if (Context.Mode == Mode.Offline)
+                Context.ActiveSession = new Session()
                 {
-                    Context.ActiveSession = new Session()
-                    {
-                        SessionStart = DateTime.UtcNow,
-                        Id = Guid.NewGuid(),
-                        Device = Context.ParentControlService.ConfigService.Config.Device
-                    };
-                }
-                else
-                {
-                    Context.ActiveSession = Context.ParentControlService.SessionService.StartSession(Context.Device.Id);
-                }
+                    SessionStart = DateTime.UtcNow,
+                    Id = Guid.NewGuid(),
+                    Device = Context.ParentControlService.ConfigService.Config.Device
+                };
             }
             else
             {
-                Context.ActiveSession = Context.TodaySessions.First(s => s.SessionEnd == null);
+                Context.ActiveSession = Context.ParentControlService.SessionService.StartSession(Context.Device.Id);
             }
 
             Context.ParentControlService.LocalSessionTracker.SaveSession(Context.ActiveSession);

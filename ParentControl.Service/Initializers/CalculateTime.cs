@@ -44,7 +44,12 @@ namespace ParentControl.Service.Initializers
             PrintMessage($"Found timesheet. Total time: {timesheet.Time.ToString("h'h 'm'm 's's'")}");
             //session 
             var allTimeSpendToday = Context.TodaySessions != null ? new TimeSpan(Context.TodaySessions.Where(s => s.SessionEnd != null).Sum(s => s.SessionEnd.Value.Subtract(s.SessionStart).Ticks)) : new TimeSpan();
-            allTimeSpendToday = allTimeSpendToday.Add(DateTime.UtcNow.Subtract(Context.ActiveSession.SessionStart));
+
+            if(Context.ActiveSession != null)
+            {
+                allTimeSpendToday = allTimeSpendToday.Add(DateTime.UtcNow.Subtract(Context.ActiveSession.SessionStart));
+            }
+            
             Context.TimeLeft = timesheet.Time.Subtract(allTimeSpendToday);
 
             if (Context.TimeLeft < TimeSpan.Zero)

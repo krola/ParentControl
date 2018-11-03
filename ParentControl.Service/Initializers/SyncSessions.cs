@@ -31,6 +31,14 @@ namespace ParentControl.Service.Initializers
             {
                 Context.ParentControlService.SessionService.UpdateSession(localSession, Context.Device.Id);
             }
+
+            Context.TodaySessions = Context.ParentControlService.LocalSessionTracker.Sessions?.Where(
+                s => s.SessionStart.Date == DateTime.UtcNow.Date).ToList();
+
+            if (Context.TodaySessions != null && Context.TodaySessions.Any(s => s.SessionEnd != null))
+            {
+                Context.ActiveSession = Context.TodaySessions.First(s => s.SessionEnd == null);
+            }
         }
 
         protected override bool Valid()

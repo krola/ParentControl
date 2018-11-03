@@ -18,12 +18,22 @@ namespace ParentControl.Service.Jobs
             }
 
             OnJobStarted += () => {
+                if(Context.ActiveSession == null)
+                {
+                    return;
+                }
+
                 var handler = new StatusHandler();
                 var response = JsonConvert.SerializeObject(new ServerResposePocket() { Command = handler.Command, Origin = string.Empty, Payload = handler.Handle(null) });
                 Context.WebsocketHandler.Send(response);
             };
 
             OnJobStopped += () => {
+                if (Context.ActiveSession == null)
+                {
+                    return;
+                }
+
                 var handler = new StatusHandler();
                 var response = JsonConvert.SerializeObject(new ServerResposePocket() { Command = handler.Command, Origin = string.Empty, Payload = JsonConvert.SerializeObject(new { Status = 0 }) });
                 Context.WebsocketHandler.Send(response);

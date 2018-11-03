@@ -27,7 +27,8 @@ namespace ParentControl.Service.Jobs
                         System.Console.ForegroundColor = System.ConsoleColor.White;
                         stopFlag = true;
                         var commandExecuter = new CommandExecuter();
-                        //commandExecuter.Execute("notify close");
+                        commandExecuter.Execute("job stop timer");
+                        commandExecuter.Execute("notify close");
                     }
                     Thread.Sleep(1000);
                 }
