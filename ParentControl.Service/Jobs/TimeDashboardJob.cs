@@ -52,7 +52,11 @@ namespace ParentControl.Service.Jobs
 
         public override void Stop()
         {
-            _process.Kill();
+            _process.Refresh();
+            if (!_process.HasExited)
+            {
+                _process.Kill();
+            }
         }
 
         private void CheckProcesses(Process[] pnames)
