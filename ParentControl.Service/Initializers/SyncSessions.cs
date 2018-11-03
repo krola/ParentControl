@@ -35,7 +35,7 @@ namespace ParentControl.Service.Initializers
             Context.TodaySessions = Context.ParentControlService.LocalSessionTracker.Sessions?.Where(
                 s => s.SessionStart.Date == DateTime.UtcNow.Date).ToList();
 
-            if (Context.TodaySessions != null && Context.TodaySessions.Any(s => s.SessionEnd != null))
+            if (Context.TodaySessions != null && Context.TodaySessions.Any(s => s.SessionEnd == null))
             {
                 Context.ActiveSession = Context.TodaySessions.First(s => s.SessionEnd == null);
             }

@@ -11,7 +11,7 @@ namespace ParentControl.Service.Communication.Websocket.RequestHandler
 
         public string Handle(string payload)
         {
-            var sessionTime = DateTime.UtcNow.Subtract(App.Context.ActiveSession.SessionStart).TotalSeconds;
+            var sessionTime = App.Context.ActiveSession != null ? DateTime.UtcNow.Subtract(App.Context.ActiveSession.SessionStart).TotalSeconds : 0;
             var resultPayload = new
             {
                 Status = 1,
