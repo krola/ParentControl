@@ -50,6 +50,7 @@ namespace ParentControl.Infrastructure.Service
                 //log
             }
 
+            session.SessionEnd = endDate;
             return session;
         }
 

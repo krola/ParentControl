@@ -17,7 +17,8 @@ namespace ParentControl.Service.Command.CloseCommands
 
         protected override void Do(string[] args)
         {
-            Context.ParentControlService.SessionService.EndSession(Context.ActiveSession);
+            var session = Context.ParentControlService.SessionService.EndSession(Context.ActiveSession);
+            Context.ParentControlService.LocalSessionTracker.SaveSession(session);
             Context.JobManager.Stop();
         }
     }
