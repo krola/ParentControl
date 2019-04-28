@@ -65,6 +65,7 @@
     <Compile Include="Command\JobCommands\JobStop.cs" />
     <Compile Include="Command\RefreshCommand.cs" />
     <Compile Include="Command\RefreshCommands\RefreshTime.cs" />
+    <Compile Include="Command\ShutdownCommand.cs" />
     <Compile Include="Command\UnlockCommand.cs" />
     <Compile Include="Command\LockCommand.cs" />
     <Compile Include="Command\NotifyCommand.cs" />

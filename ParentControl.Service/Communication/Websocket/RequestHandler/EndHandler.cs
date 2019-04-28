@@ -17,8 +17,8 @@ namespace ParentControl.Service.Communication.Websocket.RequestHandler
 
         public string Handle(string payload)
         {
-            _commandExecuter.Execute("notify close");
             _commandExecuter.Execute("close session");
+            _commandExecuter.Execute("shutdown");
             return string.Empty;
         }
     }

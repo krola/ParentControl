@@ -78,7 +78,7 @@ namespace ParentControl.Service.Jobs
                 _stopFlag = true;
                 var commandExecuter = new CommandExecuter();
                 commandExecuter.Execute("job stop timer");
-                commandExecuter.Execute("notify close");
+                commandExecuter.Execute("shutdown");
             }
         }
 
